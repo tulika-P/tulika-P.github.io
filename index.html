@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tulika Pandey / Brand Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --ink:   #0C0C0C;
+      --mid:   #6B6B6B;
+      --faint: #B0A898;
+      --rule:  #E2DDD8;
+      --cream: #F7F4EF;
+      --paper: #FDFCFA;
+      --gold:  #B8965A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ─────────────────────────────────────────── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(253,252,250,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+      height: 60px;
+      display: flex; align-items: center;
+      padding: 0 52px;
+      justify-content: space-between;
+    }
+    .h-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; letter-spacing: 0.06em;
+    }
+    .h-nav { display: flex; gap: 36px; list-style: none; }
+    .h-nav a {
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none; color: var(--mid); transition: color 0.2s;
+    }
+    .h-nav a:hover { color: var(--ink); }
+
+    /* ── HERO ───────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh; padding-top: 60px;
+      background: var(--cream);
+      display: grid; grid-template-rows: 1fr auto;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; bottom: -30px; right: -10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(100px, 16vw, 200px);
+      font-weight: 300; color: transparent;
+      -webkit-text-stroke: 1px #E0DAD4;
+      line-height: 1; pointer-events: none; user-select: none;
+    }
+    .hero-body {
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 80px 52px 60px;
+      position: relative; z-index: 1;
+    }
+    .eyebrow {
+      font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 28px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .eyebrow::before {
+      content: ''; display: block; width: 32px; height: 1px; background: var(--gold);
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6.5vw, 5.5rem);
+      font-weight: 300; line-height: 1.1;
+      letter-spacing: -0.01em; max-width: 780px; margin-bottom: 36px;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      font-size: 0.92rem; line-height: 1.85; color: var(--mid);
+      max-width: 500px; margin-bottom: 48px;
+    }
+    .cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none; color: var(--ink);
+      border-bottom: 1px solid var(--ink); padding-bottom: 3px;
+      transition: gap 0.3s, color 0.3s, border-color 0.3s;
+    }
+    .cta:hover { gap: 18px; color: var(--gold); border-color: var(--gold); }
+    .stats-bar {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--rule);
+      position: relative; z-index: 1;
+    }
+    .stat {
+      padding: 28px 52px; border-right: 1px solid var(--rule);
+      background: var(--paper);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-n {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.3rem; font-weight: 300; line-height: 1; margin-bottom: 5px;
+    }
+    .stat-l {
+      font-size: 0.6rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--faint);
+    }
+
+    /* ── QUOTE STRIP ───────────────────────────────────── */
+    .quote-strip {
+      background: var(--ink);
+      padding: 36px 52px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 0;
+    }
+    .quote-line {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+      font-style: italic; font-weight: 300;
+      color: var(--white);
+      letter-spacing: 0.01em;
+    }
+    .quote-dot {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem; color: var(--gold);
+    }
+
+    /* ── SECTION LABEL ─────────────────────────────────── */
+    .section-label-row {
+      display: flex; align-items: center; gap: 20px;
+      padding: 64px 52px 0;
+    }
+    .section-label {
+      font-size: 0.6rem; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--faint); white-space: nowrap;
+    }
+    .section-rule { flex: 1; height: 1px; background: var(--rule); }
+
+    /* ── BRAND CARDS ────────────────────────────────────── */
+    .brands { padding: 40px 52px 100px; display: flex; flex-direction: column; gap: 32px; }
+
+    .brand-card { border: 1px solid var(--rule); background: var(--paper); overflow: hidden; }
+
+    /* ── BRAND HERO BANNER ─────────────────────────────── */
+    .brand-banner {
+      padding: 52px 52px 48px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: end;
+      position: relative;
+      overflow: hidden;
+    }
+    .banner-bg-num {
+      position: absolute; right: -10px; bottom: -20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 180px; font-weight: 300; line-height: 1;
+      opacity: 0.12; pointer-events: none; user-select: none;
+      letter-spacing: -0.04em;
+    }
+    .banner-left { position: relative; z-index: 1; }
+    .banner-num {
+      font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+      opacity: 0.5; margin-bottom: 10px;
+    }
+    .banner-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 300; line-height: 1.1; margin-bottom: 8px;
+    }
+    .banner-tagline {
+      font-size: 0.72rem; letter-spacing: 0.14em;
+      text-transform: uppercase; opacity: 0.6; margin-bottom: 16px;
+    }
+    .banner-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-weight: 300;
+      line-height: 1.65; max-width: 520px; opacity: 0.85;
+    }
+    .banner-right {
+      display: flex; flex-direction: column;
+      align-items: flex-end; gap: 10px;
+      position: relative; z-index: 1;
+    }
+    .banner-tag {
+      font-size: 0.58rem; letter-spacing: 0.22em;
+      text-transform: uppercase;
+      border: 1px solid currentColor;
+      padding: 5px 12px; opacity: 0.6;
+    }
+    .banner-links { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+    .banner-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.68rem; letter-spacing: 0.1em;
+      text-decoration: none; opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .banner-link:hover { opacity: 1; }
+    .banner-link svg {
+      width: 11px; height: 11px; stroke: currentColor;
+      fill: none; stroke-width: 1.5; flex-shrink: 0;
+    }
+
+    /* ── BRAND CONTENT ──────────────────────────────────── */
+    .brand-content {
+      padding: 36px 52px 48px;
+      border-top: 1px solid var(--rule);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .content-label {
+      font-size: 0.58rem; letter-spacing: 0.24em;
+      text-transform: uppercase; color: var(--faint); margin-bottom: 16px;
+    }
+    .content-list { list-style: none; }
+    .content-list li {
+      font-size: 0.82rem; color: var(--mid);
+      padding: 7px 0; border-bottom: 1px solid #F0EDE9;
+      display: flex; align-items: flex-start; gap: 10px; line-height: 1.4;
+    }
+    .content-list li::before {
+      content: ''; display: block; width: 4px; height: 4px; border-radius: 50%;
+      background: var(--gold); flex-shrink: 0; margin-top: 6px;
+    }
+    .chip {
+      display: inline-block;
+      background: var(--cream); border-radius: 2px;
+      font-size: 0.75rem; color: var(--mid);
+      padding: 6px 12px; margin: 3px 4px 3px 0;
+    }
+
+    /* ── BRAND COLOR THEMES ─────────────────────────────── */
+    /* Dream Of: blush pink */
+    .brand-dreamof .brand-banner { background: linear-gradient(135deg, #FDE8EA 0%, #FAD4D8 60%, #F5BEC4 100%); color: #4A1A1F; }
+    .brand-dreamof .banner-bg-num { color: #E8A0AA; }
+
+    /* Y Play Z: warm peach/orange */
+    .brand-yplayz .brand-banner { background: linear-gradient(135deg, #FEE4C0 0%, #FBCFA0 50%, #F5B878 100%); color: #4A2A08; }
+    .brand-yplayz .banner-bg-num { color: #E8A060; }
+
+    /* Dab to Fab: clean off-white + forest green */
+    .brand-dabtofab .brand-banner { background: linear-gradient(135deg, #EEE8E0 0%, #E4DDD4 50%, #D8D0C4 100%); color: #2D4A30; }
+    .brand-dabtofab .banner-bg-num { color: #B8B0A4; }
+
+    /* Juhst: sage green / botanical */
+    .brand-juhst .brand-banner { background: linear-gradient(135deg, #E0EAE0 0%, #CFDECF 50%, #BAD0BA 100%); color: #1E3A1E; }
+    .brand-juhst .banner-bg-num { color: #A0C4A0; }
+
+    /* ── CONNECT + FOOTER ───────────────────────────────── */
+    .connect {
+      background: var(--ink); color: #fff;
+      padding: 0 52px;
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; min-height: 88px; gap: 32px;
+    }
+    .connect p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-style: italic; font-weight: 300; color: #888;
+    }
+    .connect p span { color: #fff; }
+    .connect-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none; color: #fff;
+      border: 1px solid #444; padding: 14px 28px;
+      transition: border-color 0.25s, color 0.25s; white-space: nowrap;
+    }
+    .connect-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+    footer {
+      background: var(--ink); border-top: 1px solid #1E1E1E;
+      padding: 52px 52px 36px;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px;
+    }
+    .footer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; color: #fff; font-weight: 300; margin-bottom: 6px;
+    }
+    .footer-role { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: #555; }
+    .footer-col-lbl { font-size: 0.58rem; letter-spacing: 0.24em; text-transform: uppercase; color: #444; margin-bottom: 16px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 0.82rem; color: #777; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom {
+      background: var(--ink); border-top: 1px solid #1A1A1A;
+      padding: 18px 52px; display: flex; justify-content: space-between;
+    }
+    .footer-bottom p { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: #333; }
+
+    /* ── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 900px) {
+      header, .hero-body, .section-label-row, .brands, .connect, footer, .footer-bottom { padding-left: 24px; padding-right: 24px; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .stat { padding: 24px; }
+      .brand-banner { grid-template-columns: 1fr; padding: 36px 28px; }
+      .banner-right { align-items: flex-start; }
+      .brand-content { grid-template-columns: 1fr; padding: 28px; }
+      footer { grid-template-columns: 1fr; }
+      .connect { grid-template-columns: 1fr; padding: 32px 24px; }
+      .h-nav { display: none; }
+      .hero-bg { display: none; }
+      .banner-bg-num { font-size: 120px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <span class="h-name">Tulika Pandey</span>
+    <nav><ul class="h-nav">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="mailto:tulikaa.pandey@gmail.com">Get in touch &rarr;</a></li>
+    </ul></nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true">Brand</div>
+    <div class="hero-body">
+      <p class="eyebrow">Brand Portfolio / 2026</p>
+      <h1>I turn founder vision into<br /><em>brands people actually buy.</em></h1>
+      <p class="hero-sub">
+        I'm a brand strategist with 5+ years building beauty and wellness brands from the ground up,
+        working directly with founders to shape identity, lead teams, and bring campaigns to life
+        across product, content, influencer, and retail.
+      </p>
+      <a class="cta" href="#work">View selected work &rarr;</a>
+    </div>
+    <div class="stats-bar">
+      <div class="stat"><span class="stat-n">10+</span><span class="stat-l">Brands Built</span></div>
+      <div class="stat"><span class="stat-n">50K+</span><span class="stat-l">Community Grown</span></div>
+      <div class="stat"><span class="stat-n">166%</span><span class="stat-l">CTR Increase</span></div>
+      <div class="stat"><span class="stat-n">$1.2M+</span><span class="stat-l">Portfolio Value</span></div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <!-- QUOTE STRIP -->
+  <div class="quote-strip">
+    <span class="quote-line">Strategy that ships.</span>
+    <span class="quote-dot" aria-hidden="true">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+    <span class="quote-line">Brands that stick.</span>
+  </div>
+
+  <div id="work">
+    <div class="section-label-row">
+      <span class="section-label">Selected Work</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="brands">
+
+      <!-- 01 DREAM OF -->
+      <div class="brand-card brand-dreamof">
+        <div class="brand-banner">
+          <div class="banner-left">
+            <p class="banner-num">01 / 04</p>
+            <h2 class="banner-name">Dream Of</h2>
+            <p class="banner-tagline">Instant Refresh &nbsp;·&nbsp; Naturally Tinted Dry Shampoo</p>
+            <p class="banner-desc">A haircare brand built for real Indian conditions: lightweight, high-performance formulas designed to hold up through sweaty metros, surprise downpours, and everything in between. Travel-friendly by design, effective for every texture.</p>
+          </div>
+          <div class="banner-right">
+            <span class="banner-tag">Haircare</span>
+            <div class="banner-links">
+              <a class="banner-link" href="https://www.dreamof.in" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                dreamof.in
+              </a>
+              <a class="banner-link" href="https://www.instagram.com/dreamof.in/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                @dreamof.in
+              </a>
+            </div>
+          </div>
+          <span class="banner-bg-num" aria-hidden="true">01</span>
+        </div>
+        <div class="brand-content">
+          <div>
+            <p class="content-label">What I Built</p>
+            <ul class="content-list">
+              <li>Brand identity, naming, and visual language</li>
+              <li>GTM strategy and launch campaign execution</li>
+              <li>Instagram content strategy and community growth</li>
+              <li>Website copy and conversion flow design</li>
+              <li>Influencer partnerships and creative briefs</li>
+              <li>Shoot art direction and moodboarding</li>
+            </ul>
+          </div>
+          <div>
+            <p class="content-label">Brand Pillars</p>
+            <div>
+              <span class="chip">Indian climate-focused</span>
+              <span class="chip">Travel-friendly packaging</span>
+              <span class="chip">Clean & lightweight formulas</span>
+              <span class="chip">For oily & flat hair</span>
+              <span class="chip">Naturally tinted</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 Y PLAY Z -->
+      <div class="brand-card brand-yplayz">
+        <div class="brand-banner">
+          <div class="banner-left">
+            <p class="banner-num">02 / 04</p>
+            <h2 class="banner-name">Y Play Z</h2>
+            <p class="banner-tagline">Young &nbsp;·&nbsp; Playful &nbsp;·&nbsp; Zesty</p>
+            <p class="banner-desc">Safe, gentle, and genuinely effective personal care for kids and teens. A brand that makes healthy skin habits feel natural and fun. Cruelty-free, dermatologically tested, and free from SLS, parabens, and phthalates.</p>
+          </div>
+          <div class="banner-right">
+            <span class="banner-tag">Kids &amp; Teen Skincare</span>
+            <div class="banner-links">
+              <a class="banner-link" href="https://www.yplayz.com" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                yplayz.com
+              </a>
+              <a class="banner-link" href="https://www.instagram.com/y.play.z/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                @y.play.z
+              </a>
+            </div>
+          </div>
+          <span class="banner-bg-num" aria-hidden="true">02</span>
+        </div>
+        <div class="brand-content">
+          <div>
+            <p class="content-label">What I Built</p>
+            <ul class="content-list">
+              <li>Brand identity and tone of voice</li>
+              <li>GTM strategy and D2C launch execution</li>
+              <li>Instagram content and community growth</li>
+              <li>Website copy and product messaging</li>
+              <li>Influencer and parent community strategy</li>
+              <li>Shoot art direction for product and lifestyle imagery</li>
+            </ul>
+          </div>
+          <div>
+            <p class="content-label">Brand Pillars</p>
+            <div>
+              <span class="chip">Skincare for kids &amp; teens</span>
+              <span class="chip">Cruelty-free</span>
+              <span class="chip">Dermatologically tested</span>
+              <span class="chip">SLS free</span>
+              <span class="chip">Paraben &amp; phthalate free</span>
+              <span class="chip">2-in-1 formulas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 DAB TO FAB -->
+      <div class="brand-card brand-dabtofab">
+        <div class="brand-banner">
+          <div class="banner-left">
+            <p class="banner-num">03 / 04</p>
+            <h2 class="banner-name">Dab to Fab</h2>
+            <p class="banner-tagline">Less steps &nbsp;·&nbsp; Smarter skincare</p>
+            <p class="banner-desc">A modern skincare brand that treats skin moods rather than skin types, built around barrier repair and microbiome health. Stocked on Nykaa and Amazon; gifting partner at the ELLE Fashion Soirée.</p>
+          </div>
+          <div class="banner-right">
+            <span class="banner-tag">Skincare</span>
+            <div class="banner-links">
+              <a class="banner-link" href="https://dabtofab.co" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                dabtofab.co
+              </a>
+              <a class="banner-link" href="https://www.instagram.com/dabtofabofficial/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                @dabtofabofficial
+              </a>
+            </div>
+          </div>
+          <span class="banner-bg-num" aria-hidden="true">03</span>
+        </div>
+        <div class="brand-content">
+          <div>
+            <p class="content-label">What I Built</p>
+            <ul class="content-list">
+              <li>Brand identity and positioning strategy</li>
+              <li>GTM strategy and D2C + retail launch</li>
+              <li>Instagram content and community growth</li>
+              <li>Website copy and conversion flows</li>
+              <li>Retail and PR narrative for Nykaa, Amazon, ELLE</li>
+              <li>Shoot art direction and campaign creative</li>
+            </ul>
+          </div>
+          <div>
+            <p class="content-label">Highlights</p>
+            <div>
+              <span class="chip">Listed on Nykaa &amp; Amazon India</span>
+              <span class="chip">ELLE Fashion Soirée gifting partner</span>
+              <span class="chip">Barrier repair focus</span>
+              <span class="chip">Microbiome-friendly</span>
+              <span class="chip">Gentle cleanse. Deep repair.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 JUHST -->
+      <div class="brand-card brand-juhst">
+        <div class="brand-banner">
+          <div class="banner-left">
+            <p class="banner-num">04 / 04</p>
+            <h2 class="banner-name">Juhst</h2>
+            <p class="banner-tagline">Botanical &amp; Peptide Skincare &nbsp;·&nbsp; Built for Indian Skin</p>
+            <p class="banner-desc">Holistic skincare blending topical formulas with adaptogen-based nutraceuticals for a truly complete approach to wellness. Formulated to EU safety standards; now stocked on Nykaa and in physical stores across Delhi and Hyderabad.</p>
+          </div>
+          <div class="banner-right">
+            <span class="banner-tag">Holistic Wellness Skincare</span>
+            <div class="banner-links">
+              <a class="banner-link" href="https://www.juhst.com" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                juhst.com
+              </a>
+              <a class="banner-link" href="https://www.instagram.com/juhst.official/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                @juhst.official
+              </a>
+            </div>
+          </div>
+          <span class="banner-bg-num" aria-hidden="true">04</span>
+        </div>
+        <div class="brand-content">
+          <div>
+            <p class="content-label">What I Built</p>
+            <ul class="content-list">
+              <li>Brand identity and holistic wellness narrative</li>
+              <li>GTM strategy and omnichannel launch</li>
+              <li>Instagram content and community growth</li>
+              <li>Website copy and product storytelling</li>
+              <li>Retail expansion strategy (Nykaa, offline stores)</li>
+              <li>Influencer and partnership strategy</li>
+            </ul>
+          </div>
+          <div>
+            <p class="content-label">Highlights</p>
+            <div>
+              <span class="chip">Listed on Nykaa &amp; NykaaMan</span>
+              <span class="chip">Offline stores in Delhi &amp; Hyderabad</span>
+              <span class="chip">EU safety standards compliant</span>
+              <span class="chip">Reishi mushroom peptides</span>
+              <span class="chip">Adaptogen nutraceuticals</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CONNECT STRIP -->
+  <div class="connect" id="contact">
+    <p><span>The first hire that makes every other hire easier.</span> Open to Brand Manager and marketing leadership roles in beauty, wellness &amp; lifestyle.</p>
+    <a class="connect-btn" href="mailto:tulikaa.pandey@gmail.com">Get in touch &rarr;</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <p class="footer-name">Tulika Pandey</p>
+      <p class="footer-role">Brand Strategist / Delhi, India</p>
+    </div>
+    <div>
+      <p class="footer-col-lbl">Contact</p>
+      <ul class="footer-links">
+        <li><a href="mailto:tulikaa.pandey@gmail.com">tulikaa.pandey@gmail.com</a></li>
+        <li><a href="tel:+917838694498">+91 78386 94498</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-lbl">Connect</p>
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/in/tulika-pandey/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/dreamof.in/" target="_blank" rel="noopener">Dream Of</a></li>
+        <li><a href="https://www.instagram.com/dabtofabofficial/" target="_blank" rel="noopener">Dab to Fab</a></li>
+        <li><a href="https://www.instagram.com/juhst.official/" target="_blank" rel="noopener">Juhst</a></li>
+      </ul>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <p>Tulika Pandey / Brand Portfolio</p>
+    <p>&copy; 2026</p>
+  </div>
+
+</body>
+</html>

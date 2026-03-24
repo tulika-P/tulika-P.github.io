@@ -123,13 +123,12 @@
       background: var(--ink);
       padding: 36px 52px;
       display: flex; align-items: center; justify-content: center;
-      gap: 0;
     }
     .quote-line {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.4rem, 2.8vw, 2.2rem);
       font-style: italic; font-weight: 300;
-      color: var(--white);
+      color: #fff;
       letter-spacing: 0.01em;
     }
     .quote-dot {
@@ -158,8 +157,8 @@
       padding: 52px 52px 48px;
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 40px;
-      align-items: end;
+      gap: 32px;
+      align-items: start;
       position: relative;
       overflow: hidden;
     }
@@ -189,29 +188,39 @@
       font-size: 1.15rem; font-weight: 300;
       line-height: 1.65; max-width: 520px; opacity: 0.85;
     }
+    /* ── BANNER RIGHT — alignment fix ─────────────────── */
     .banner-right {
       display: flex; flex-direction: column;
       align-items: flex-end; gap: 10px;
       position: relative; z-index: 1;
+      min-width: 140px;
     }
     .banner-tag {
       font-size: 0.58rem; letter-spacing: 0.22em;
       text-transform: uppercase;
       border: 1px solid currentColor;
       padding: 5px 12px; opacity: 0.6;
+      white-space: nowrap;
     }
-    .banner-links { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+    .banner-links {
+      display: flex; flex-direction: column; gap: 8px;
+      width: 100%;
+    }
     .banner-link {
-      display: inline-flex; align-items: center; gap: 8px;
+      display: flex; align-items: center; gap: 8px;
+      justify-content: flex-end;
       font-size: 0.68rem; letter-spacing: 0.1em;
       text-decoration: none; opacity: 0.7;
       transition: opacity 0.2s;
+      white-space: nowrap;
     }
     .banner-link:hover { opacity: 1; }
     .banner-link svg {
       width: 11px; height: 11px; stroke: currentColor;
       fill: none; stroke-width: 1.5; flex-shrink: 0;
+      order: 2;
     }
+    .banner-link span { order: 1; }
 
     /* ── BRAND CONTENT ──────────────────────────────────── */
     .brand-content {
@@ -241,6 +250,19 @@
       padding: 6px 12px; margin: 3px 4px 3px 0;
     }
 
+    /* ── IN DEVELOPMENT BADGE ───────────────────────────── */
+    .dev-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+      background: rgba(0,0,0,0.06); border-radius: 2px;
+      padding: 5px 10px; color: inherit; opacity: 0.7;
+      margin-bottom: 12px;
+    }
+    .dev-badge::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: currentColor; opacity: 0.5;
+    }
+
     /* ── INSTAGRAM EMBED ────────────────────────────────── */
     .brand-ig {
       border-top: 1px solid var(--rule);
@@ -253,26 +275,48 @@
       margin: 0 auto !important;
       max-width: 480px !important;
     }
-    @media (max-width: 900px) {
-      .brand-ig { padding: 28px 24px 36px; }
-    }
 
-    /* ── BRAND COLOR THEMES ─────────────────────────────── */
-    /* Dream Of: blush pink */
-    .brand-dreamof .brand-banner { background: linear-gradient(135deg, #FDE8EA 0%, #FAD4D8 60%, #F5BEC4 100%); color: #4A1A1F; }
+    /* ── BRAND COLOR THEMES + BACKGROUND IMAGES ─────────── */
+
+    /* Dream Of: blush pink with product image */
+    .brand-dreamof .brand-banner {
+      background:
+        linear-gradient(110deg, #FDE8EA 0%, #FDE8EA 45%, rgba(253,232,234,0.7) 62%, transparent 80%),
+        url('https://www.dreamof.in/cdn/shop/files/soft_lending_web_banner.webp') right center / auto 100% no-repeat,
+        linear-gradient(135deg, #FDE8EA 0%, #FAD4D8 60%, #F5BEC4 100%);
+      color: #4A1A1F;
+    }
     .brand-dreamof .banner-bg-num { color: #E8A0AA; }
 
     /* Y Play Z: warm peach/orange */
     .brand-yplayz .brand-banner { background: linear-gradient(135deg, #FEE4C0 0%, #FBCFA0 50%, #F5B878 100%); color: #4A2A08; }
     .brand-yplayz .banner-bg-num { color: #E8A060; }
 
-    /* Dab to Fab: clean off-white + forest green */
-    .brand-dabtofab .brand-banner { background: linear-gradient(135deg, #EEE8E0 0%, #E4DDD4 50%, #D8D0C4 100%); color: #2D4A30; }
+    /* Dab to Fab: off-white + forest green with product image */
+    .brand-dabtofab .brand-banner {
+      background:
+        linear-gradient(110deg, #EEE8E0 0%, #EEE8E0 45%, rgba(238,232,224,0.7) 62%, transparent 80%),
+        url('https://dabtofab.co/cdn/shop/files/2_desktop.jpg') right center / auto 100% no-repeat,
+        linear-gradient(135deg, #EEE8E0 0%, #E4DDD4 50%, #D8D0C4 100%);
+      color: #2D4A30;
+    }
     .brand-dabtofab .banner-bg-num { color: #B8B0A4; }
 
     /* Juhst: sage green / botanical */
     .brand-juhst .brand-banner { background: linear-gradient(135deg, #E0EAE0 0%, #CFDECF 50%, #BAD0BA 100%); color: #1E3A1E; }
     .brand-juhst .banner-bg-num { color: #A0C4A0; }
+
+    /* Put Simply: clean minimal white/mint — K-beauty */
+    .brand-putsimply .brand-banner { background: linear-gradient(135deg, #E8F4F0 0%, #D4EDE6 50%, #BFE3D8 100%); color: #1A3A30; }
+    .brand-putsimply .banner-bg-num { color: #90C8BB; }
+
+    /* Defi: bold deep plum/aubergine */
+    .brand-defi .brand-banner { background: linear-gradient(135deg, #EDE0E8 0%, #E0CDD8 50%, #D0B8C8 100%); color: #3A1A30; }
+    .brand-defi .banner-bg-num { color: #C090B0; }
+
+    /* Nakeup: warm nude / in-development */
+    .brand-nakeup .brand-banner { background: linear-gradient(135deg, #F2EDE6 0%, #EAE0D5 50%, #DFCFBE 100%); color: #3A2A1A; }
+    .brand-nakeup .banner-bg-num { color: #C8B090; }
 
     /* ── CONNECT + FOOTER ───────────────────────────────── */
     .connect {
@@ -317,17 +361,35 @@
 
     /* ── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 900px) {
-      header, .hero-body, .section-label-row, .brands, .connect, footer, .footer-bottom { padding-left: 24px; padding-right: 24px; }
+      header { padding: 0 20px; }
+      .hero-body, .section-label-row, .brands, .connect, .footer-bottom { padding-left: 20px; padding-right: 20px; }
+      footer { padding: 40px 20px 28px; }
       .stats-bar { grid-template-columns: repeat(2, 1fr); }
-      .stat { padding: 24px; }
-      .brand-banner { grid-template-columns: 1fr; padding: 36px 28px; }
-      .banner-right { align-items: flex-start; }
-      .brand-content { grid-template-columns: 1fr; padding: 28px; }
-      footer { grid-template-columns: 1fr; }
-      .connect { grid-template-columns: 1fr; padding: 32px 24px; }
+      .stat { padding: 20px 20px; }
+      .brand-banner {
+        grid-template-columns: 1fr;
+        padding: 32px 20px;
+        gap: 20px;
+        /* Disable image backgrounds on mobile for performance */
+        background-image: none !important;
+      }
+      .brand-dreamof .brand-banner { background-color: #FDE8EA; }
+      .brand-dabtofab .brand-banner { background-color: #EEE8E0; }
+      .banner-right { align-items: flex-start; min-width: unset; }
+      .banner-links { width: auto; }
+      .banner-link { justify-content: flex-start; }
+      .banner-link svg { order: 0; }
+      .banner-link span { order: 0; }
+      .brand-content { grid-template-columns: 1fr; padding: 24px 20px; gap: 28px; }
+      .brand-ig { padding: 24px 20px 32px; }
+      footer { grid-template-columns: 1fr; gap: 32px; }
+      .connect { grid-template-columns: 1fr; padding: 28px 20px; }
       .h-nav { display: none; }
       .hero-bg { display: none; }
-      .banner-bg-num { font-size: 120px; }
+      .banner-bg-num { font-size: 100px; opacity: 0.08; }
+      .brands { padding: 28px 20px 64px; gap: 20px; }
+      .section-label-row { padding: 48px 20px 0; }
+      .quote-strip { padding: 28px 20px; }
     }
   </style>
 </head>
@@ -350,21 +412,19 @@
       <p class="eyebrow">Brand Portfolio / 2026</p>
       <h1>I turn founder vision into<br /><em>brands people actually buy.</em></h1>
       <p class="hero-sub">
-        I'm a brand strategist with 5+ years building beauty and wellness brands from the ground up,
-        working directly with founders to shape identity, lead teams, and bring campaigns to life
-        across product, content, influencer, and retail.
+        Brand strategist with 5+ years building beauty and wellness brands from the ground up —
+        from consumer research and product development to identity, campaigns, and communities that convert.
       </p>
       <a class="cta" href="#work">View selected work &rarr;</a>
     </div>
     <div class="stats-bar">
       <div class="stat"><span class="stat-n">10+</span><span class="stat-l">Brands Built</span></div>
-      <div class="stat"><span class="stat-n">50K+</span><span class="stat-l">Community Grown</span></div>
+      <div class="stat"><span class="stat-n">60K+</span><span class="stat-l">Community Grown</span></div>
       <div class="stat"><span class="stat-n">166%</span><span class="stat-l">CTR Increase</span></div>
       <div class="stat"><span class="stat-n">$1.2M+</span><span class="stat-l">Portfolio Value</span></div>
     </div>
   </section>
 
-  <!-- WORK -->
   <!-- QUOTE STRIP -->
   <div class="quote-strip">
     <span class="quote-line">Strategy that ships.</span>
@@ -383,21 +443,21 @@
       <div class="brand-card brand-dreamof">
         <div class="brand-banner">
           <div class="banner-left">
-            <p class="banner-num">01 / 04</p>
+            <p class="banner-num">01 / 07</p>
             <h2 class="banner-name">Dream Of</h2>
-            <p class="banner-tagline">Instant Refresh &nbsp;·&nbsp; Naturally Tinted Dry Shampoo</p>
-            <p class="banner-desc">A haircare brand built for real Indian conditions: lightweight, high-performance formulas designed to hold up through sweaty metros, surprise downpours, and everything in between. Travel-friendly by design, effective for every texture.</p>
+            <p class="banner-tagline">Research-backed &nbsp;·&nbsp; Made for Indian Hair</p>
+            <p class="banner-desc">India's first tinted dry shampoo — built from scratch through consumer research, imported product testing across Indian users, and 4 research-backed launches designed for real Indian conditions: humidity, heat, hard water, and every hair texture.</p>
           </div>
           <div class="banner-right">
             <span class="banner-tag">Haircare</span>
             <div class="banner-links">
               <a class="banner-link" href="https://www.dreamof.in" target="_blank" rel="noopener">
+                <span>dreamof.in</span>
                 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                dreamof.in
               </a>
               <a class="banner-link" href="https://www.instagram.com/dreamof.in/" target="_blank" rel="noopener">
+                <span>@dreamof.in</span>
                 <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-                @dreamof.in
               </a>
             </div>
           </div>
@@ -407,22 +467,25 @@
           <div>
             <p class="content-label">What I Built</p>
             <ul class="content-list">
-              <li>Brand identity, naming, and visual language</li>
-              <li>GTM strategy and launch campaign execution</li>
-              <li>Instagram content strategy and community growth</li>
-              <li>Website copy and conversion flow design</li>
-              <li>Influencer partnerships and creative briefs</li>
-              <li>Shoot art direction and moodboarding</li>
+              <li>India market research — identified haircare category gaps and products not available domestically</li>
+              <li>Ordered and tested imported products with 50+ Indian consumers; consumer feedback directly shaped the final 4-product lineup</li>
+              <li>Brand identity, naming, customer archetypes, and visual language from scratch</li>
+              <li>Marketing angles for each product at launch and GTM campaign execution</li>
+              <li>Instagram content strategy, community growth, and brand language</li>
+              <li>Website copy, conversion storytelling, and product messaging</li>
+              <li>Influencer partnerships, creative briefs, and shoot art direction</li>
+              <li>Moodboard feedback, visual direction, and pop-up event support</li>
             </ul>
           </div>
           <div>
             <p class="content-label">Brand Pillars</p>
             <div>
-              <span class="chip">Indian climate-focused</span>
-              <span class="chip">Travel-friendly packaging</span>
-              <span class="chip">Clean & lightweight formulas</span>
-              <span class="chip">For oily & flat hair</span>
-              <span class="chip">Naturally tinted</span>
+              <span class="chip">Made for Indian Hair</span>
+              <span class="chip">Cruelty Free</span>
+              <span class="chip">Colour Safe</span>
+              <span class="chip">Paraben Free</span>
+              <span class="chip">For oily &amp; flat hair</span>
+              <span class="chip">Indian climate-tested</span>
             </div>
           </div>
         </div>
@@ -435,7 +498,7 @@
       <div class="brand-card brand-yplayz">
         <div class="brand-banner">
           <div class="banner-left">
-            <p class="banner-num">02 / 04</p>
+            <p class="banner-num">02 / 07</p>
             <h2 class="banner-name">Y Play Z</h2>
             <p class="banner-tagline">Young &nbsp;·&nbsp; Playful &nbsp;·&nbsp; Zesty</p>
             <p class="banner-desc">Safe, gentle, and genuinely effective personal care for kids and teens. A brand that makes healthy skin habits feel natural and fun. Cruelty-free, dermatologically tested, and free from SLS, parabens, and phthalates.</p>
@@ -444,12 +507,12 @@
             <span class="banner-tag">Kids &amp; Teen Skincare</span>
             <div class="banner-links">
               <a class="banner-link" href="https://www.yplayz.com" target="_blank" rel="noopener">
+                <span>yplayz.com</span>
                 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                yplayz.com
               </a>
               <a class="banner-link" href="https://www.instagram.com/y.play.z/" target="_blank" rel="noopener">
+                <span>@y.play.z</span>
                 <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-                @y.play.z
               </a>
             </div>
           </div>
@@ -459,12 +522,12 @@
           <div>
             <p class="content-label">What I Built</p>
             <ul class="content-list">
-              <li>Brand identity and tone of voice</li>
+              <li>Brand identity, tone of voice, and customer archetypes</li>
               <li>GTM strategy and D2C launch execution</li>
-              <li>Instagram content and community growth</li>
-              <li>Website copy and product messaging</li>
-              <li>Influencer and parent community strategy</li>
-              <li>Shoot art direction for product and lifestyle imagery</li>
+              <li>Marketing angles per product and Instagram content strategy</li>
+              <li>Website copy, product messaging, and brand language</li>
+              <li>Moodboard feedback and visual direction</li>
+              <li>Influencer, parent community strategy, and shoot art direction</li>
             </ul>
           </div>
           <div>
@@ -488,21 +551,21 @@
       <div class="brand-card brand-dabtofab">
         <div class="brand-banner">
           <div class="banner-left">
-            <p class="banner-num">03 / 04</p>
+            <p class="banner-num">03 / 07</p>
             <h2 class="banner-name">Dab to Fab</h2>
             <p class="banner-tagline">Less steps &nbsp;·&nbsp; Smarter skincare</p>
-            <p class="banner-desc">A modern skincare brand that treats skin moods rather than skin types, built around barrier repair and microbiome health. Stocked on Nykaa and Amazon; gifting partner at the ELLE Fashion Soirée.</p>
+            <p class="banner-desc">A modern skincare brand that treats skin moods rather than skin types, built around barrier repair and microbiome health. Award-winning cleanser; stocked on Nykaa and Amazon; gifting partner at the ELLE Fashion Soirée.</p>
           </div>
           <div class="banner-right">
             <span class="banner-tag">Skincare</span>
             <div class="banner-links">
               <a class="banner-link" href="https://dabtofab.co" target="_blank" rel="noopener">
+                <span>dabtofab.co</span>
                 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                dabtofab.co
               </a>
               <a class="banner-link" href="https://www.instagram.com/dabtofabofficial/" target="_blank" rel="noopener">
+                <span>@dabtofabofficial</span>
                 <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-                @dabtofabofficial
               </a>
             </div>
           </div>
@@ -512,12 +575,12 @@
           <div>
             <p class="content-label">What I Built</p>
             <ul class="content-list">
-              <li>Brand identity and positioning strategy</li>
+              <li>Brand identity, positioning strategy, customer archetypes, and brand language</li>
               <li>GTM strategy and D2C + retail launch</li>
-              <li>Instagram content and community growth</li>
-              <li>Website copy and conversion flows</li>
-              <li>Retail and PR narrative for Nykaa, Amazon, ELLE</li>
-              <li>Shoot art direction and campaign creative</li>
+              <li>Marketing angles per product and Instagram content strategy</li>
+              <li>Website copy, conversion flows, and product storytelling</li>
+              <li>Retail and PR narrative for Nykaa, Amazon, ELLE; moodboard and visual direction</li>
+              <li>Shoot art direction, campaign creative, and pop-up event support</li>
             </ul>
           </div>
           <div>
@@ -525,14 +588,14 @@
             <div>
               <span class="chip">Listed on Nykaa &amp; Amazon India</span>
               <span class="chip">ELLE Fashion Soirée gifting partner</span>
+              <span class="chip">Award-winning cleanser</span>
               <span class="chip">Barrier repair focus</span>
               <span class="chip">Microbiome-friendly</span>
-              <span class="chip">Gentle cleanse. Deep repair.</span>
             </div>
           </div>
         </div>
         <div class="brand-ig">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQZj907k1Mm/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DVIYIivk3ZS/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
         </div>
       </div>
 
@@ -540,21 +603,21 @@
       <div class="brand-card brand-juhst">
         <div class="brand-banner">
           <div class="banner-left">
-            <p class="banner-num">04 / 04</p>
+            <p class="banner-num">04 / 07</p>
             <h2 class="banner-name">Juhst</h2>
             <p class="banner-tagline">Botanical &amp; Peptide Skincare &nbsp;·&nbsp; Built for Indian Skin</p>
-            <p class="banner-desc">Holistic skincare blending topical formulas with adaptogen-based nutraceuticals for a truly complete approach to wellness. Formulated to EU safety standards; now stocked on Nykaa and in physical stores across Delhi and Hyderabad.</p>
+            <p class="banner-desc">Holistic skincare blending topical formulas with adaptogen-based nutraceuticals for a truly complete approach to wellness. Formulated to EU safety standards; stocked on Nykaa and in physical stores across Delhi and Hyderabad.</p>
           </div>
           <div class="banner-right">
             <span class="banner-tag">Holistic Wellness Skincare</span>
             <div class="banner-links">
               <a class="banner-link" href="https://www.juhst.com" target="_blank" rel="noopener">
+                <span>juhst.com</span>
                 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                juhst.com
               </a>
               <a class="banner-link" href="https://www.instagram.com/juhst.official/" target="_blank" rel="noopener">
+                <span>@juhst.official</span>
                 <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-                @juhst.official
               </a>
             </div>
           </div>
@@ -564,12 +627,12 @@
           <div>
             <p class="content-label">What I Built</p>
             <ul class="content-list">
-              <li>Brand identity and holistic wellness narrative</li>
+              <li>Brand identity, holistic wellness narrative, and customer archetypes</li>
               <li>GTM strategy and omnichannel launch</li>
-              <li>Instagram content and community growth</li>
-              <li>Website copy and product storytelling</li>
-              <li>Retail expansion strategy (Nykaa, offline stores)</li>
-              <li>Influencer and partnership strategy</li>
+              <li>Marketing angles per product and Instagram content strategy</li>
+              <li>Website copy, product storytelling, and brand language</li>
+              <li>Retail expansion strategy (Nykaa, offline stores); moodboard and visual direction</li>
+              <li>Influencer, partnership strategy, and pop-up event support</li>
             </ul>
           </div>
           <div>
@@ -585,6 +648,143 @@
         </div>
         <div class="brand-ig">
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DV8cUlGCfGG/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+        </div>
+      </div>
+
+      <!-- 05 PUT SIMPLY -->
+      <div class="brand-card brand-putsimply">
+        <div class="brand-banner">
+          <div class="banner-left">
+            <p class="banner-num">05 / 07</p>
+            <h2 class="banner-name">Put Simply</h2>
+            <p class="banner-tagline">K-Beauty &nbsp;·&nbsp; Made for India</p>
+            <p class="banner-desc">Bringing the best of Korean skincare to Indian consumers — effective, minimalist formulations designed to simplify routines without compromising results. Clean ingredients, accessible price points, and genuine K-beauty expertise.</p>
+          </div>
+          <div class="banner-right">
+            <span class="banner-tag">Korean Skincare</span>
+            <div class="banner-links">
+              <a class="banner-link" href="https://putsimply.co.in" target="_blank" rel="noopener">
+                <span>putsimply.co.in</span>
+                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a class="banner-link" href="https://www.instagram.com/putsimplyofficial/" target="_blank" rel="noopener">
+                <span>@putsimplyofficial</span>
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              </a>
+            </div>
+          </div>
+          <span class="banner-bg-num" aria-hidden="true">05</span>
+        </div>
+        <div class="brand-content">
+          <div>
+            <p class="content-label">What I Built</p>
+            <ul class="content-list">
+              <li>Brand identity, tone of voice, and customer archetypes for Indian market</li>
+              <li>GTM strategy and D2C launch execution</li>
+              <li>Marketing angles per product and Instagram content strategy</li>
+              <li>Website copy, product messaging, and brand language</li>
+              <li>Influencer partnerships and creative briefs</li>
+              <li>Shoot art direction, moodboard feedback, and visual direction</li>
+            </ul>
+          </div>
+          <div>
+            <p class="content-label">Brand Pillars</p>
+            <div>
+              <span class="chip">K-beauty expertise</span>
+              <span class="chip">Minimalist routines</span>
+              <span class="chip">Clean formulations</span>
+              <span class="chip">Accessible price points</span>
+              <span class="chip">Straight from Korea</span>
+            </div>
+          </div>
+        </div>
+        <div class="brand-ig">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DN-A79yEvSl/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+        </div>
+      </div>
+
+      <!-- 06 DEFI -->
+      <div class="brand-card brand-defi">
+        <div class="brand-banner">
+          <div class="banner-left">
+            <p class="banner-num">06 / 07</p>
+            <h2 class="banner-name">Defi</h2>
+            <p class="banner-tagline">Bold &nbsp;·&nbsp; Unapologetic &nbsp;·&nbsp; Beauty</p>
+            <p class="banner-desc">A beauty brand built for those who don't follow the rules — formulated for self-expression, performance, and individuality. Designed to be seen, felt, and remembered across every skin tone and skin type.</p>
+          </div>
+          <div class="banner-right">
+            <span class="banner-tag">Beauty</span>
+            <div class="banner-links">
+              <a class="banner-link" href="https://www.instagram.com/defibeauty.in/" target="_blank" rel="noopener">
+                <span>@defibeauty.in</span>
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              </a>
+            </div>
+          </div>
+          <span class="banner-bg-num" aria-hidden="true">06</span>
+        </div>
+        <div class="brand-content">
+          <div>
+            <p class="content-label">What I Built</p>
+            <ul class="content-list">
+              <li>Brand identity, positioning, customer archetypes, and brand language</li>
+              <li>GTM strategy and launch campaign execution</li>
+              <li>Marketing angles per product and Instagram content strategy</li>
+              <li>Website copy and conversion storytelling</li>
+              <li>Influencer partnerships and creative briefs</li>
+              <li>Shoot art direction and moodboard feedback</li>
+            </ul>
+          </div>
+          <div>
+            <p class="content-label">Brand Pillars</p>
+            <div>
+              <span class="chip">For every skin tone</span>
+              <span class="chip">High-performance formulas</span>
+              <span class="chip">Self-expression first</span>
+              <span class="chip">Unapologetically bold</span>
+            </div>
+          </div>
+        </div>
+        <div class="brand-ig">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DTsTrxBjjUt/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+        </div>
+      </div>
+
+      <!-- 07 NAKEUP — IN DEVELOPMENT -->
+      <div class="brand-card brand-nakeup">
+        <div class="brand-banner">
+          <div class="banner-left">
+            <p class="banner-num">07 / 07</p>
+            <div class="dev-badge">In Development</div>
+            <h2 class="banner-name">Nakeup</h2>
+            <p class="banner-tagline">Consumer Research &nbsp;·&nbsp; Pre-Launch</p>
+            <p class="banner-desc">A makeup brand currently in development, built entirely from ground-up consumer insight. 50+ in-depth interviews conducted across India with makeup enthusiasts — shaping the product concept, brand positioning, and go-to-market strategy before a single product is launched.</p>
+          </div>
+          <div class="banner-right">
+            <span class="banner-tag">Makeup</span>
+          </div>
+          <span class="banner-bg-num" aria-hidden="true">07</span>
+        </div>
+        <div class="brand-content">
+          <div>
+            <p class="content-label">Research &amp; Strategy Work</p>
+            <ul class="content-list">
+              <li>Conducted 50+ in-depth consumer interviews with makeup enthusiasts across India</li>
+              <li>Identified unmet needs and white-space opportunities in the Indian makeup market</li>
+              <li>Developed customer archetypes, brand positioning, and core brand narrative</li>
+              <li>Defined product concept and category priorities based on consumer feedback</li>
+              <li>Built GTM framework and launch strategy for when the brand goes live</li>
+            </ul>
+          </div>
+          <div>
+            <p class="content-label">Focus Areas</p>
+            <div>
+              <span class="chip">India-first makeup</span>
+              <span class="chip">Consumer-led product development</span>
+              <span class="chip">Research-backed positioning</span>
+              <span class="chip">Pre-launch strategy</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -617,6 +817,8 @@
         <li><a href="https://www.instagram.com/dreamof.in/" target="_blank" rel="noopener">Dream Of</a></li>
         <li><a href="https://www.instagram.com/dabtofabofficial/" target="_blank" rel="noopener">Dab to Fab</a></li>
         <li><a href="https://www.instagram.com/juhst.official/" target="_blank" rel="noopener">Juhst</a></li>
+        <li><a href="https://www.instagram.com/putsimplyofficial/" target="_blank" rel="noopener">Put Simply</a></li>
+        <li><a href="https://www.instagram.com/defibeauty.in/" target="_blank" rel="noopener">Defi</a></li>
       </ul>
     </div>
   </footer>

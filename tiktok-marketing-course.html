@@ -33,1101 +33,947 @@
 
     /* ── HERO ── */
     .hero {
-      padding-top: 56px; min-height: 90vh;
+      padding-top: 56px; min-height: 88vh;
       background: var(--ink);
       display: grid; grid-template-rows: 1fr auto;
       position: relative; overflow: hidden;
     }
     .hero-grid {
-      display: grid; grid-template-columns: 1fr 420px;
-      gap: 0; padding: 80px 48px 60px;
+      display: grid; grid-template-columns: 1fr 380px;
+      padding: 80px 48px 60px;
       position: relative; z-index: 1;
     }
     .hero-left { display: flex; flex-direction: column; justify-content: center; padding-right: 60px; }
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 32px;
-    }
+    .hero-tag { display: inline-flex; align-items: center; gap: 10px; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 32px; }
     .hero-tag::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 5.5vw, 5rem);
-      font-weight: 300; line-height: 1.08;
-      color: #fff; letter-spacing: -0.01em; margin-bottom: 28px;
-    }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5.5vw, 5rem); font-weight: 300; line-height: 1.08; color: #fff; letter-spacing: -0.01em; margin-bottom: 28px; }
     .hero h1 em { font-style: italic; color: var(--gold); }
-    .hero-sub { font-size: 0.9rem; line-height: 1.9; color: rgba(255,255,255,0.55); max-width: 480px; margin-bottom: 40px; }
-    .hero-modules {
-      display: flex; flex-wrap: wrap; gap: 8px;
-    }
-    .hero-pill {
-      font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
-      padding: 6px 14px; border: 1px solid rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.45);
-    }
-    /* hero illustration */
-    .hero-right {
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-    }
-    .phone-frame {
-      width: 220px; height: 400px;
-      border: 2px solid rgba(255,255,255,0.15);
-      border-radius: 36px;
-      background: rgba(255,255,255,0.04);
-      position: relative; overflow: hidden;
-      display: flex; flex-direction: column; align-items: center;
-    }
-    .phone-notch {
-      width: 80px; height: 24px; background: rgba(255,255,255,0.08);
-      border-radius: 0 0 14px 14px; margin-top: 0;
-    }
-    .phone-screen {
-      flex: 1; width: 100%; padding: 16px;
-      display: flex; flex-direction: column; gap: 10px;
-    }
-    .phone-fyp {
-      font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(255,255,255,0.3); text-align: center; margin: 8px 0;
-    }
-    .phone-video {
-      background: rgba(255,255,255,0.06); border-radius: 8px;
-      padding: 12px; display: flex; flex-direction: column; gap: 6px;
-    }
-    .phone-video-bar { height: 6px; border-radius: 3px; background: rgba(255,255,255,0.12); }
-    .phone-video-bar.w80 { width: 80%; }
-    .phone-video-bar.w60 { width: 60%; }
-    .phone-video-bar.w40 { width: 40%; }
-    .phone-actions {
-      display: flex; justify-content: flex-end; flex-direction: column;
-      align-items: flex-end; gap: 16px; padding: 8px;
-    }
-    .phone-action-dot { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.1); }
-    .phone-progress {
-      height: 2px; background: rgba(255,255,255,0.08); width: 100%; margin-top: auto;
-    }
-    .phone-progress-fill { height: 100%; width: 55%; background: var(--gold); }
-    /* floating labels around phone */
-    .float-label {
-      position: absolute;
-      font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-      display: flex; align-items: center; gap: 8px;
-    }
-    .float-label::before { content: ''; display: block; width: 20px; height: 1px; background: rgba(255,255,255,0.2); }
-    .fl-1 { top: 80px; right: -140px; }
-    .fl-2 { top: 160px; right: -120px; }
-    .fl-3 { top: 240px; right: -150px; }
-    .fl-4 { top: 320px; right: -100px; }
+    .hero-sub { font-size: 0.9rem; line-height: 1.9; color: rgba(255,255,255,0.5); max-width: 480px; margin-bottom: 40px; }
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .hero-pill { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 6px 14px; border: 1px solid rgba(255,255,255,0.13); color: rgba(255,255,255,0.4); }
+    .hero-right { display: flex; align-items: center; justify-content: center; }
+    .phone-frame { width: 210px; height: 390px; border: 2px solid rgba(255,255,255,0.14); border-radius: 36px; background: rgba(255,255,255,0.04); position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; }
+    .phone-notch { width: 80px; height: 22px; background: rgba(255,255,255,0.07); border-radius: 0 0 14px 14px; }
+    .phone-screen { flex: 1; width: 100%; padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+    .phone-fyp { font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.28); text-align: center; margin: 6px 0; }
+    .phone-video { background: rgba(255,255,255,0.05); border-radius: 7px; padding: 12px; display: flex; flex-direction: column; gap: 6px; }
+    .phone-bar { height: 5px; border-radius: 3px; background: rgba(255,255,255,0.1); }
+    .phone-bar.w80 { width: 80%; } .phone-bar.w60 { width: 60%; } .phone-bar.w40 { width: 40%; }
+    .phone-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 14px; padding: 6px; }
+    .phone-dot { width: 26px; height: 26px; border-radius: 50%; background: rgba(255,255,255,0.09); }
+    .phone-progress { height: 2px; background: rgba(255,255,255,0.07); width: 100%; margin-top: auto; }
+    .phone-fill { height: 100%; width: 55%; background: var(--gold); }
+    .float-lbl { position: absolute; font-size: 0.55rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.3); display: flex; align-items: center; gap: 7px; }
+    .float-lbl::before { content: ''; display: block; width: 18px; height: 1px; background: rgba(255,255,255,0.18); }
+    .fl-1 { top: 70px; right: -130px; } .fl-2 { top: 150px; right: -115px; } .fl-3 { top: 230px; right: -140px; } .fl-4 { top: 305px; right: -95px; }
 
     /* ── STATS STRIP ── */
-    .stats-strip {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      position: relative; z-index: 1;
-    }
-    .stat-cell {
-      padding: 28px 48px; border-right: 1px solid rgba(255,255,255,0.08);
-    }
+    .stats-strip { border-top: 1px solid rgba(255,255,255,0.08); display: grid; grid-template-columns: repeat(4, 1fr); position: relative; z-index: 1; }
+    .stat-cell { padding: 26px 48px; border-right: 1px solid rgba(255,255,255,0.08); }
     .stat-cell:last-child { border-right: none; }
-    .stat-n { display: block; font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: #fff; line-height: 1; margin-bottom: 4px; }
-    .stat-l { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.28); }
+    .stat-n { display: block; font-family: 'Cormorant Garamond', serif; font-size: 2.1rem; font-weight: 300; color: #fff; line-height: 1; margin-bottom: 4px; }
+    .stat-l { font-size: 0.57rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.26); }
+
+    /* ── MODULE JUMP NAV ── */
+    .jump-nav { border-bottom: 1px solid var(--rule); background: var(--cream); padding: 0 48px; overflow-x: auto; white-space: nowrap; }
+    .jump-nav-inner { display: flex; gap: 0; }
+    .jump-link { display: inline-flex; align-items: center; gap: 8px; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: var(--faint); padding: 16px 20px; border-right: 1px solid var(--rule); transition: color .2s, background .2s; white-space: nowrap; }
+    .jump-link:hover { color: var(--gold); background: var(--paper); }
+    .jump-num { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; color: var(--gold); }
 
     /* ── SECTION LABEL ── */
-    .slabel-row { display: flex; align-items: center; gap: 20px; padding: 64px 48px 0; }
+    .slabel-row { display: flex; align-items: center; gap: 20px; padding: 56px 48px 0; }
     .slabel { font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--faint); white-space: nowrap; }
     .srule { flex: 1; height: 1px; background: var(--rule); }
 
     /* ── INTRO GRID ── */
-    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); margin: 40px 48px; border: 1px solid var(--rule); }
-    .intro-cell { background: var(--paper); padding: 36px; }
-    .intro-cell h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; margin-bottom: 12px; }
-    .intro-cell p { font-size: 0.84rem; line-height: 1.8; color: var(--mid); }
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); margin: 36px 48px; border: 1px solid var(--rule); }
+    .intro-cell { background: var(--paper); padding: 32px; }
+    .intro-cell h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; margin-bottom: 10px; }
+    .intro-cell p { font-size: 0.83rem; line-height: 1.8; color: var(--mid); }
 
-    /* ── MODULE CARDS ── */
-    .modules { padding: 40px 48px 80px; display: flex; flex-direction: column; gap: 2px; background: var(--rule); border: 1px solid var(--rule); margin: 0 48px 80px; }
-    .module { background: var(--paper); }
+    /* ── MODULE WRAPPER ── */
+    .modules { padding: 0 48px 80px; display: flex; flex-direction: column; gap: 2px; }
+    .module { border: 1px solid var(--rule); background: var(--paper); }
 
-    /* module header — full-width banner */
-    .mod-header {
-      display: grid; grid-template-columns: auto 1fr auto;
-      gap: 0; border-bottom: 1px solid var(--rule);
-      position: relative; overflow: hidden;
-    }
-    .mod-num-col {
-      padding: 40px 32px;
-      border-right: 1px solid var(--rule);
-      display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
-      min-width: 80px;
-    }
-    .mod-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.4rem; font-weight: 300; line-height: 1; color: var(--gold);
-    }
-    .mod-of { font-size: 0.5rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--faint); margin-top: 2px; }
-    .mod-text-col { padding: 40px 40px 36px; }
-    .mod-tag-inline {
-      font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--faint); margin-bottom: 8px; display: block;
-    }
-    .mod-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.6rem, 2.5vw, 2.4rem);
-      font-weight: 300; line-height: 1.1; margin-bottom: 10px;
-    }
-    .mod-subtitle { font-size: 0.8rem; color: var(--mid); line-height: 1.6; max-width: 540px; }
-    .mod-illus-col {
-      padding: 32px 40px 32px 24px;
-      display: flex; align-items: center; justify-content: center;
-      border-left: 1px solid var(--rule); min-width: 140px;
-    }
+    /* ── MODULE HEADER ── */
+    .mod-header { display: grid; grid-template-columns: 80px 1fr 120px; border-bottom: 1px solid var(--rule); overflow: hidden; }
+    .mod-num-col { padding: 36px 0; border-right: 1px solid var(--rule); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 40px; }
+    .mod-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; line-height: 1; color: var(--gold); }
+    .mod-of { font-size: 0.48rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--faint); margin-top: 2px; }
+    .mod-text-col { padding: 36px 40px 32px; }
+    .mod-tag-inline { font-size: 0.54rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--faint); margin-bottom: 6px; display: block; }
+    .mod-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 2.4vw, 2.3rem); font-weight: 300; line-height: 1.1; margin-bottom: 8px; }
+    .mod-subtitle { font-size: 0.82rem; color: var(--mid); line-height: 1.65; max-width: 600px; }
+    .mod-illus-col { border-left: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; }
+    .mod-illus-col svg { width: 70px; height: 70px; }
 
-    /* module body — lessons + example + resources */
-    .mod-body { display: grid; grid-template-columns: 1fr 320px; }
+    /* ── MODULE BODY LAYOUT ── */
+    .mod-body { display: grid; grid-template-columns: 1fr 300px; }
     .mod-main { border-right: 1px solid var(--rule); }
-    .mod-lessons { padding: 32px 36px 0 36px; }
-    .lessons-title { font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--faint); margin-bottom: 18px; }
-    .lesson { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
-    .lesson:last-child { border-bottom: none; }
-    .l-num { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; color: var(--gold); min-width: 24px; padding-top: 1px; }
-    .l-text { font-size: 0.84rem; line-height: 1.5; }
-    .l-note { display: block; font-size: 0.76rem; color: var(--mid); margin-top: 4px; line-height: 1.5; }
+    .mod-sidebar { padding: 28px 24px; }
 
-    /* example box */
-    .mod-example {
-      margin: 24px 36px 32px;
-      background: var(--cream); border: 1px solid var(--rule); padding: 24px;
-    }
-    .example-label { font-size: 0.55rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-    .example-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
-    .example-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; margin-bottom: 6px; }
-    .example-text { font-size: 0.8rem; line-height: 1.7; color: var(--mid); }
-    .example-stat {
-      margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--rule);
-      display: flex; gap: 24px;
-    }
-    .ex-stat-n { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--ink); }
-    .ex-stat-l { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); }
+    /* ── LESSONS ── */
+    .mod-section { padding: 32px 40px; border-bottom: 1px solid var(--rule); }
+    .mod-section:last-child { border-bottom: none; }
+    .section-heading { font-size: 0.57rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--faint); margin-bottom: 22px; display: flex; align-items: center; gap: 14px; }
+    .section-heading::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
 
-    /* sidebar */
-    .mod-sidebar { padding: 32px 28px; }
-    .sidebar-title { font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--faint); margin-bottom: 18px; }
-    .res-item { padding: 11px 0; border-bottom: 1px solid var(--rule); }
-    .res-item:last-child { border-bottom: none; }
-    .res-link { font-size: 0.8rem; color: var(--ink); text-decoration: none; display: flex; align-items: flex-start; gap: 8px; transition: color .2s; line-height: 1.4; }
-    .res-link:hover { color: var(--gold); }
-    .res-arrow { color: var(--gold); font-size: 0.7rem; flex-shrink: 0; margin-top: 1px; }
-    .res-src { display: block; font-size: 0.68rem; color: var(--faint); margin-top: 2px; }
-    .badge { font-size: 0.45rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 2px 5px; border: 1px solid var(--rule); color: var(--faint); vertical-align: middle; margin-left: 4px; }
+    .lesson { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--rule); }
+    .lesson:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .lesson-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 10px; }
+    .lesson-num { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--gold); min-width: 28px; }
+    .lesson-title { font-size: 0.9rem; font-weight: 500; color: var(--ink); }
+    .lesson-body { font-size: 0.83rem; line-height: 1.85; color: var(--mid); margin-left: 42px; }
+    .lesson-body p { margin-bottom: 10px; }
+    .lesson-body p:last-child { margin-bottom: 0; }
+    .lesson-body strong { color: var(--ink); font-weight: 500; }
 
-    /* module chips */
-    .mod-chips {
-      border-top: 1px solid var(--rule);
-      padding: 18px 36px;
-      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-      background: var(--cream);
-    }
-    .chips-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
-    .chip { font-size: 0.68rem; padding: 4px 12px; border: 1px solid var(--rule); background: var(--paper); color: var(--mid); }
+    /* ── CALLOUT BOXES ── */
+    .callout { margin: 16px 0; padding: 16px 20px; border-left: 2px solid var(--gold); background: var(--cream); }
+    .callout-label { font-size: 0.52rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .callout p { font-size: 0.8rem; line-height: 1.7; color: var(--mid); }
+    .callout strong { color: var(--ink); }
 
-    /* ── SVG ILLUSTRATIONS ── */
-    .illus svg { width: 80px; height: 80px; }
+    .callout-warn { border-left-color: #B05A5A; }
+    .callout-warn .callout-label { color: #B05A5A; }
 
-    /* ── ALGORITHM DIAGRAM ── */
-    .algo-diagram {
-      margin: 0 36px 32px;
-      border: 1px solid var(--rule); overflow: hidden;
-    }
-    .algo-title { font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--faint); padding: 16px 20px; border-bottom: 1px solid var(--rule); background: var(--cream); }
-    .algo-steps { display: flex; align-items: stretch; }
-    .algo-step {
-      flex: 1; padding: 18px 14px; text-align: center;
-      border-right: 1px solid var(--rule);
-      position: relative;
-    }
-    .algo-step:last-child { border-right: none; }
-    .algo-step-n { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--gold); line-height: 1; }
-    .algo-step-label { font-size: 0.62rem; color: var(--mid); margin-top: 4px; line-height: 1.4; }
-    .algo-arrow { display: flex; align-items: center; padding: 0 2px; color: var(--faint); font-size: 0.7rem; }
+    /* ── FRAMEWORK BOXES ── */
+    .framework { margin: 20px 0; border: 1px solid var(--rule); overflow: hidden; }
+    .framework-head { background: var(--cream); padding: 12px 20px; font-size: 0.57rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--faint); border-bottom: 1px solid var(--rule); }
+    .framework-body { padding: 20px; }
+    .framework-row { display: flex; gap: 1px; background: var(--rule); }
+    .framework-cell { flex: 1; background: var(--paper); padding: 16px; }
+    .fw-cell-label { font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .fw-cell-title { font-size: 0.88rem; font-weight: 500; margin-bottom: 6px; }
+    .fw-cell-text { font-size: 0.77rem; line-height: 1.6; color: var(--mid); }
 
-    /* ── HOOK FORMULA ── */
-    .hook-formula {
-      margin: 0 36px 32px;
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      border: 1px solid var(--rule); overflow: hidden;
-    }
-    .hf-cell { padding: 20px; border-right: 1px solid var(--rule); }
-    .hf-cell:last-child { border-right: none; }
-    .hf-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
-    .hf-example { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--ink); line-height: 1.4; }
-    .hf-note { font-size: 0.72rem; color: var(--mid); margin-top: 6px; }
+    /* ── STEPS ── */
+    .steps { margin: 16px 0; }
+    .step { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+    .step:last-child { border-bottom: none; }
+    .step-n { width: 28px; height: 28px; border: 1px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+    .step-content { font-size: 0.82rem; line-height: 1.6; color: var(--mid); }
+    .step-content strong { color: var(--ink); display: block; margin-bottom: 2px; font-size: 0.84rem; }
 
     /* ── SIGNAL TABLE ── */
-    .signal-table { margin: 0 36px 32px; border: 1px solid var(--rule); overflow: hidden; }
-    .sig-row { display: grid; grid-template-columns: 160px 1fr 80px; border-bottom: 1px solid var(--rule); }
+    .signal-table { border: 1px solid var(--rule); overflow: hidden; margin: 16px 0; }
+    .sig-row { display: grid; grid-template-columns: 1fr 2fr 60px; border-bottom: 1px solid var(--rule); }
     .sig-row:last-child { border-bottom: none; }
-    .sig-row.header { background: var(--cream); }
-    .sig-cell { padding: 12px 16px; font-size: 0.78rem; }
-    .sig-cell.header { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--faint); }
-    .sig-bar-wrap { display: flex; align-items: center; gap: 8px; }
+    .sig-row.hdr { background: var(--cream); }
+    .sig-cell { padding: 11px 16px; font-size: 0.79rem; display: flex; align-items: center; }
+    .sig-cell.hdr { font-size: 0.52rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--faint); }
+    .sig-bar-wrap { display: flex; align-items: center; gap: 8px; width: 100%; }
     .sig-bar { height: 4px; background: var(--rule); flex: 1; border-radius: 2px; position: relative; }
     .sig-fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--gold); border-radius: 2px; }
-    .sig-weight { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; color: var(--gold); }
+    .sig-score { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: var(--gold); }
+
+    /* ── CONTENT FORMAT GRID ── */
+    .format-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 16px 0; overflow: hidden; }
+    .format-cell { background: var(--paper); padding: 18px 16px; }
+    .format-name { font-size: 0.8rem; font-weight: 500; margin-bottom: 4px; }
+    .format-tag { font-size: 0.54rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; display: block; }
+    .format-desc { font-size: 0.75rem; line-height: 1.55; color: var(--mid); }
+
+    /* ── HOOK TABLE ── */
+    .hook-table { border: 1px solid var(--rule); overflow: hidden; margin: 16px 0; }
+    .hook-row { display: grid; grid-template-columns: 110px 1fr; border-bottom: 1px solid var(--rule); }
+    .hook-row:last-child { border-bottom: none; }
+    .hook-row.hdr { background: var(--cream); }
+    .hook-cell { padding: 12px 16px; font-size: 0.79rem; }
+    .hook-cell.hdr { font-size: 0.52rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--faint); }
+    .hook-type { font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); padding-top: 13px; }
+    .hook-example { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.95rem; color: var(--ink); margin-bottom: 3px; }
+    .hook-note { font-size: 0.72rem; color: var(--mid); }
+
+    /* ── CASE STUDY ── */
+    .case-study { background: var(--cream); border: 1px solid var(--rule); padding: 28px; margin: 20px 0; }
+    .cs-label { font-size: 0.53rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .cs-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .cs-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; margin-bottom: 4px; }
+    .cs-category { font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); margin-bottom: 14px; display: block; }
+    .cs-body { font-size: 0.82rem; line-height: 1.8; color: var(--mid); margin-bottom: 16px; }
+    .cs-body strong { color: var(--ink); }
+    .cs-breakdown { border-top: 1px solid var(--rule); padding-top: 16px; }
+    .cs-breakdown-label { font-size: 0.52rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--faint); margin-bottom: 10px; }
+    .cs-points { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .cs-point { display: flex; gap: 10px; font-size: 0.79rem; line-height: 1.5; color: var(--mid); }
+    .cs-point::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+    .cs-stats { display: flex; gap: 28px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--rule); }
+    .cs-stat-n { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--ink); }
+    .cs-stat-l { font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); }
+
+    /* ── PRACTICE ── */
+    .practice { border: 1px solid var(--rule); padding: 22px 26px; margin: 20px 0; background: var(--paper); }
+    .practice-label { font-size: 0.52rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-bottom: 12px; }
+    .practice h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; margin-bottom: 10px; }
+    .practice ol { padding-left: 18px; display: flex; flex-direction: column; gap: 7px; }
+    .practice li { font-size: 0.8rem; line-height: 1.6; color: var(--mid); }
+    .practice li strong { color: var(--ink); }
+
+    /* ── SIDEBAR ── */
+    .sidebar-title { font-size: 0.55rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--faint); margin-bottom: 16px; }
+    .res-item { padding: 10px 0; border-bottom: 1px solid var(--rule); }
+    .res-item:last-child { border-bottom: none; }
+    .res-link { font-size: 0.79rem; color: var(--ink); text-decoration: none; display: flex; align-items: flex-start; gap: 8px; transition: color .2s; line-height: 1.4; }
+    .res-link:hover { color: var(--gold); }
+    .res-arrow { color: var(--gold); font-size: 0.7rem; flex-shrink: 0; margin-top: 2px; }
+    .res-src { display: block; font-size: 0.67rem; color: var(--faint); margin-top: 2px; }
+    .badge { font-size: 0.44rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 2px 5px; border: 1px solid var(--rule); color: var(--faint); vertical-align: middle; margin-left: 4px; }
+    .sidebar-divider { height: 1px; background: var(--rule); margin: 20px 0; }
+    .sidebar-note { font-size: 0.75rem; line-height: 1.65; color: var(--mid); }
+    .sidebar-note strong { color: var(--ink); display: block; font-size: 0.78rem; margin-bottom: 4px; }
+
+    /* ── CHIPS ── */
+    .mod-chips { border-top: 1px solid var(--rule); padding: 16px 32px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; background: var(--cream); }
+    .chips-label { font-size: 0.53rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+    .chip { font-size: 0.67rem; padding: 4px 12px; border: 1px solid var(--rule); background: var(--paper); color: var(--mid); }
+
+    /* ── DARK MODULE ── */
+    .mod-dark { background: var(--ink); }
+    .mod-dark .mod-header { background: var(--ink); border-bottom-color: rgba(255,255,255,0.08); }
+    .mod-dark .mod-num-col { border-right-color: rgba(255,255,255,0.08); }
+    .mod-dark .mod-of { color: rgba(255,255,255,0.28); }
+    .mod-dark .mod-tag-inline { color: rgba(255,255,255,0.28); }
+    .mod-dark .mod-title { color: #fff; }
+    .mod-dark .mod-subtitle { color: rgba(255,255,255,0.5); }
+    .mod-dark .mod-illus-col { border-left-color: rgba(255,255,255,0.08); }
+    .mod-dark .mod-body { background: var(--ink); }
+    .mod-dark .mod-main { border-right-color: rgba(255,255,255,0.08); }
+    .mod-dark .mod-section { border-bottom-color: rgba(255,255,255,0.08); }
+    .mod-dark .section-heading { color: rgba(255,255,255,0.28); }
+    .mod-dark .section-heading::after { background: rgba(255,255,255,0.08); }
+    .mod-dark .lesson { border-bottom-color: rgba(255,255,255,0.08); }
+    .mod-dark .lesson-title { color: rgba(255,255,255,0.88); }
+    .mod-dark .lesson-body { color: rgba(255,255,255,0.5); }
+    .mod-dark .lesson-body strong { color: rgba(255,255,255,0.85); }
+    .mod-dark .mod-sidebar { }
+    .mod-dark .sidebar-title { color: rgba(255,255,255,0.28); }
+    .mod-dark .res-item { border-bottom-color: rgba(255,255,255,0.08); }
+    .mod-dark .res-link { color: rgba(255,255,255,0.7); }
+    .mod-dark .res-src { color: rgba(255,255,255,0.3); }
+    .mod-dark .mod-chips { background: #161616; border-top-color: rgba(255,255,255,0.08); }
+    .mod-dark .chip { background: #1e1e1e; border-color: #2a2a2a; color: #B0A898; }
+    .mod-dark .step-content { color: rgba(255,255,255,0.5); }
+    .mod-dark .step-content strong { color: rgba(255,255,255,0.85); }
+    .mod-dark .step-n { border-color: var(--gold); }
 
     /* ── FOOTER ── */
     footer { border-top: 1px solid var(--rule); background: var(--cream); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; }
     .foot-name { font-family: 'Cormorant Garamond', serif; font-size: 1rem; letter-spacing: 0.06em; }
-    .foot-note { font-size: 0.65rem; color: var(--faint); letter-spacing: 0.06em; }
-    .foot-back { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: var(--mid); transition: color .2s; }
+    .foot-note { font-size: 0.63rem; color: var(--faint); }
+    .foot-back { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: var(--mid); transition: color .2s; }
     .foot-back:hover { color: var(--gold); }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 960px) {
-      .topbar { padding: 0 24px; }
-      .hero-grid { grid-template-columns: 1fr; padding: 60px 24px 40px; }
+    @media (max-width: 900px) {
+      .topbar, .jump-nav { padding: 0 20px; }
+      .hero-grid { grid-template-columns: 1fr; padding: 56px 20px 40px; }
       .hero-right { display: none; }
       .stats-strip { grid-template-columns: repeat(2, 1fr); }
-      .stat-cell { padding: 20px 24px; }
-      .slabel-row { padding: 48px 24px 0; }
-      .intro-grid { margin: 32px 24px; grid-template-columns: 1fr; }
-      .modules { margin: 0 24px 60px; padding: 32px 24px; }
-      .mod-header { grid-template-columns: auto 1fr; }
+      .stat-cell { padding: 18px 20px; }
+      .slabel-row { padding: 40px 20px 0; }
+      .intro-grid { margin: 28px 20px; grid-template-columns: 1fr; }
+      .modules { padding: 0 20px 60px; }
+      .mod-header { grid-template-columns: 64px 1fr; }
       .mod-illus-col { display: none; }
       .mod-body { grid-template-columns: 1fr; }
       .mod-main { border-right: none; }
-      .mod-sidebar { border-top: 1px solid var(--rule); padding: 24px; }
-      .algo-steps { flex-direction: column; }
-      .algo-step { border-right: none; border-bottom: 1px solid var(--rule); }
-      .hook-formula { grid-template-columns: 1fr; }
-      .hf-cell { border-right: none; border-bottom: 1px solid var(--rule); }
-      .signal-table { margin: 0 24px 24px; }
-      .mod-lessons { padding: 24px 24px 0; }
-      .mod-example { margin: 20px 24px 24px; }
-      .mod-chips { padding: 16px 24px; }
-      footer { padding: 32px 24px; flex-direction: column; gap: 16px; align-items: flex-start; }
+      .mod-sidebar { border-top: 1px solid var(--rule); }
+      .mod-section { padding: 24px 20px; }
+      .lesson-body { margin-left: 0; margin-top: 8px; }
+      .format-grid { grid-template-columns: 1fr 1fr; }
+      .framework-row { flex-direction: column; }
+      footer { padding: 28px 20px; flex-direction: column; gap: 14px; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── TOP BAR ── -->
 <div class="topbar">
   <span class="topbar-brand">Tulika Pandey</span>
   <a class="topbar-back" href="index.html">← Portfolio</a>
 </div>
 
-<!-- ── HERO ── -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-grid">
     <div class="hero-left">
-      <p class="hero-tag">Field Guide · 10 Modules</p>
-      <h1>The TikTok<br>Marketing<br><em>Masterclass</em></h1>
-      <p class="hero-sub">Everything that actually matters when building a brand on TikTok — algorithm, content, SEO, creator partnerships, commerce, and paid ads. Real sources. Real examples. No fluff.</p>
-      <div class="hero-modules">
-        <span class="hero-pill">Platform Foundations</span>
-        <span class="hero-pill">The Algorithm</span>
-        <span class="hero-pill">Content Strategy</span>
-        <span class="hero-pill">TikTok SEO</span>
-        <span class="hero-pill">Creator Partnerships</span>
-        <span class="hero-pill">TikTok Shop</span>
-        <span class="hero-pill">Paid Ads</span>
-        <span class="hero-pill">Analytics</span>
-        <span class="hero-pill">Community</span>
-        <span class="hero-pill">30-Day Plan</span>
+      <p class="hero-tag">Complete Study Guide · 10 Modules</p>
+      <h1>TikTok Marketing<br><em>Masterclass</em></h1>
+      <p class="hero-sub">A full study guide for building beauty, skincare, wellness, and grooming brands on TikTok. Every framework, every signal, every format — explained in depth. Real brand breakdowns, real sources.</p>
+      <div class="hero-pills">
+        <span class="hero-pill">Platform Foundations</span><span class="hero-pill">The Algorithm</span><span class="hero-pill">Content Strategy</span><span class="hero-pill">TikTok SEO</span><span class="hero-pill">Creator Partnerships</span><span class="hero-pill">TikTok Shop</span><span class="hero-pill">Paid Ads</span><span class="hero-pill">Analytics</span><span class="hero-pill">Community</span><span class="hero-pill">30-Day Plan</span>
       </div>
     </div>
     <div class="hero-right">
-      <div style="position:relative;">
+      <div style="position:relative">
         <div class="phone-frame">
           <div class="phone-notch"></div>
           <div class="phone-screen">
             <p class="phone-fyp">For You</p>
             <div class="phone-video">
-              <div class="phone-video-bar w80"></div>
-              <div class="phone-video-bar w60"></div>
-              <div class="phone-video-bar w40"></div>
+              <div class="phone-bar w80"></div><div class="phone-bar w60"></div><div class="phone-bar w40"></div>
             </div>
             <div class="phone-actions">
-              <div class="phone-action-dot"></div>
-              <div class="phone-action-dot"></div>
-              <div class="phone-action-dot"></div>
+              <div class="phone-dot"></div><div class="phone-dot"></div><div class="phone-dot"></div>
             </div>
           </div>
-          <div class="phone-progress"><div class="phone-progress-fill"></div></div>
+          <div class="phone-progress"><div class="phone-fill"></div></div>
         </div>
-        <span class="float-label fl-1">Watch Time</span>
-        <span class="float-label fl-2">Completion Rate</span>
-        <span class="float-label fl-3">Shares &amp; Saves</span>
-        <span class="float-label fl-4">Replays</span>
+        <span class="float-lbl fl-1">Watch Time</span>
+        <span class="float-lbl fl-2">Completion Rate</span>
+        <span class="float-lbl fl-3">Saves &amp; Shares</span>
+        <span class="float-lbl fl-4">Replays</span>
       </div>
     </div>
   </div>
   <div class="stats-strip">
     <div class="stat-cell"><span class="stat-n">10</span><span class="stat-l">Core Modules</span></div>
-    <div class="stat-cell"><span class="stat-n">40+</span><span class="stat-l">Lessons</span></div>
+    <div class="stat-cell"><span class="stat-n">50+</span><span class="stat-l">Lessons</span></div>
     <div class="stat-cell"><span class="stat-n">30+</span><span class="stat-l">Verified Sources</span></div>
-    <div class="stat-cell"><span class="stat-n">2025</span><span class="stat-l">Data &amp; Trends</span></div>
+    <div class="stat-cell"><span class="stat-n">Beauty</span><span class="stat-l">Focused Examples</span></div>
   </div>
 </section>
 
-<!-- ── INTRO ── -->
+<!-- JUMP NAV -->
+<nav class="jump-nav">
+  <div class="jump-nav-inner">
+    <a class="jump-link" href="#m1"><span class="jump-num">01</span> Platform Foundations</a>
+    <a class="jump-link" href="#m2"><span class="jump-num">02</span> The Algorithm</a>
+    <a class="jump-link" href="#m3"><span class="jump-num">03</span> Content Strategy</a>
+    <a class="jump-link" href="#m4"><span class="jump-num">04</span> TikTok SEO</a>
+    <a class="jump-link" href="#m5"><span class="jump-num">05</span> Creator Partnerships</a>
+    <a class="jump-link" href="#m6"><span class="jump-num">06</span> TikTok Shop</a>
+    <a class="jump-link" href="#m7"><span class="jump-num">07</span> Paid Ads</a>
+    <a class="jump-link" href="#m8"><span class="jump-num">08</span> Analytics</a>
+    <a class="jump-link" href="#m9"><span class="jump-num">09</span> Community</a>
+    <a class="jump-link" href="#m10"><span class="jump-num">10</span> 30-Day Plan</a>
+  </div>
+</nav>
+
+<!-- INTRO -->
 <div class="slabel-row"><span class="slabel">Before You Begin</span><div class="srule"></div></div>
 <div class="intro-grid">
   <div class="intro-cell">
     <h3>How to use this course</h3>
-    <p>Each module covers one pillar of TikTok marketing. Work through them in order if you're starting from zero, or jump to whichever module addresses your most urgent challenge right now. Every lesson is backed by real, clickable sources — so you can go as deep as you need.</p>
+    <p>Work through modules in order for a complete foundation, or use the navigation above to jump to the topic most relevant to where you are now. Every framework is designed to be applied immediately — each lesson ends with either a worked example from a real beauty or wellness brand, a practice exercise, or both.</p>
   </div>
   <div class="intro-cell">
-    <h3>What you'll be able to do</h3>
-    <p>By the end: understand how the algorithm distributes content, create videos that earn watch time, optimise for TikTok search, brief creators effectively, set up TikTok Shop, run Spark Ads, read your analytics, and launch in 30 days with a structured plan.</p>
+    <h3>What you will be able to do</h3>
+    <p>By the end: understand exactly how the TikTok algorithm distributes content and why. Create videos that earn watch time and replays. Optimise every layer of your content for search. Brief creators effectively. Set up TikTok Shop. Run Spark Ads profitably. Read your analytics and iterate. Launch a brand in 30 days with a structured plan.</p>
   </div>
 </div>
 
-<!-- ── MODULES ── -->
 <div class="slabel-row"><span class="slabel">Course Modules</span><div class="srule"></div></div>
 <div class="modules">
 
-  <!-- ────────────────────────────────────────────── -->
-  <!-- MODULE 1 -->
-  <!-- ────────────────────────────────────────────── -->
-  <div class="module">
-    <div class="mod-header">
-      <div class="mod-num-col">
-        <span class="mod-num">01</span>
-        <span class="mod-of">/ 10</span>
-      </div>
-      <div class="mod-text-col">
-        <span class="mod-tag-inline">Foundations</span>
-        <h2 class="mod-title">Platform Foundations</h2>
-        <p class="mod-subtitle">TikTok is not Instagram with shorter videos. It runs on completely different social logic — entertainment-first, algorithm-driven, and structured around communities rather than followers.</p>
-      </div>
-      <div class="mod-illus-col illus">
-        <!-- Phone + FYP icon -->
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="22" y="8" width="36" height="64" rx="6" stroke="#B8965A" stroke-width="1.5"/>
-          <rect x="28" y="16" width="24" height="40" rx="2" fill="#F7F4EF" stroke="#E2DDD8" stroke-width="1"/>
-          <circle cx="40" cy="62" r="3" stroke="#B8965A" stroke-width="1.2"/>
-          <line x1="32" y1="22" x2="48" y2="22" stroke="#B0A898" stroke-width="1"/>
-          <line x1="32" y1="27" x2="44" y2="27" stroke="#E2DDD8" stroke-width="1"/>
-          <line x1="32" y1="32" x2="46" y2="32" stroke="#E2DDD8" stroke-width="1"/>
-          <path d="M36 40 L44 36 L44 44 Z" fill="#B8965A" opacity="0.7"/>
-        </svg>
-      </div>
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MODULE 1 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="module" id="m1">
+  <div class="mod-header">
+    <div class="mod-num-col"><span class="mod-num">01</span><span class="mod-of">/ 10</span></div>
+    <div class="mod-text-col">
+      <span class="mod-tag-inline">Foundations · ~60 min</span>
+      <h2 class="mod-title">Platform Foundations</h2>
+      <p class="mod-subtitle">Before you post a single video, you need to understand the environment you are entering. TikTok operates on completely different social logic from Instagram or YouTube — the distribution, the culture, and the content contract are all different. Get this wrong and no amount of content quality will save you.</p>
     </div>
-    <div class="mod-body">
-      <div class="mod-main">
-        <div class="mod-lessons">
-          <p class="lessons-title">Lessons</p>
-          <div class="lesson"><span class="l-num">1.1</span><div class="l-text">What makes TikTok structurally different from every other platform<span class="l-note">The For You Page vs. follower feeds — why a brand-new account can go viral on day one, and why 10K followers mean almost nothing here.</span></div></div>
-          <div class="lesson"><span class="l-num">1.2</span><div class="l-text">The TikTok audience in 2025<span class="l-note">Demographics have expanded. 30–49 year olds are among the fastest-growing segments. Gen Z, Millennials, and increasingly Gen X are all active.</span></div></div>
-          <div class="lesson"><span class="l-num">1.3</span><div class="l-text">TikTok as a search engine<span class="l-note">40% of Gen Z uses TikTok as their primary search tool for product discovery. This reframes how you plan content — every video is potentially searchable.</span></div></div>
-          <div class="lesson"><span class="l-num">1.4</span><div class="l-text">Setting up your Business Account correctly<span class="l-note">Profile keywords in your bio, category selection, link placement, and why profile picture consistency matters for brand recall.</span></div></div>
-          <div class="lesson"><span class="l-num">1.5</span><div class="l-text">Understanding TikTok's subcultures<span class="l-note">#SkincareTok, #BeautyTok, #WellnessTok, #BookTok each have their own aesthetics, norms, and trust hierarchies. Violate them and you'll be ignored; speak their language and you belong.</span></div></div>
-        </div>
-        <div class="mod-example">
-          <p class="example-label">Brand Example</p>
-          <p class="example-brand">Duolingo</p>
-          <p class="example-text">Duolingo's TikTok success came entirely from understanding platform culture first. Rather than promoting its app, it leaned into the absurdist humor of TikTok using its owl mascot — chaotic, self-aware, funny. It never looked like a brand post. It looked like TikTok. The result was millions of followers with almost zero paid media.</p>
-          <div class="example-stat">
-            <div><span class="ex-stat-n">8.9M</span><span class="ex-stat-l">Followers (organic)</span></div>
-            <div><span class="ex-stat-n">Zero</span><span class="ex-stat-l">Traditional Ad Spend on TikTok</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="mod-sidebar">
-        <p class="sidebar-title">Resources</p>
-        <div class="res-item"><a class="res-link" href="https://sproutsocial.com/insights/tiktok-marketing/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Marketing: Complete Guide for Brands<span class="res-src">Sprout Social</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://buffer.com/resources/tiktok-marketing/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>The Complete Guide to TikTok Marketing<span class="res-src">Buffer</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://www.shopify.com/blog/tiktok-marketing" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Marketing Guide<span class="res-src">Shopify</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://seosherpa.com/tiktok-search-engine/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>Is TikTok the New Search Engine?<span class="res-src">SEO Sherpa</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://business.tiktok.com/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Business Center <span class="badge">Official</span><span class="res-src">TikTok</span></span></a></div>
-      </div>
-    </div>
-    <div class="mod-chips">
-      <span class="chips-label">Key Concepts</span>
-      <span class="chip">For You Page</span><span class="chip">Platform Culture</span><span class="chip">TikTok as Search</span><span class="chip">Subcultures</span><span class="chip">Business Account Setup</span>
+    <div class="mod-illus-col">
+      <svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="18" y="6" width="34" height="58" rx="5" stroke="#B8965A" stroke-width="1.4"/>
+        <rect x="24" y="14" width="22" height="36" rx="2" fill="#F7F4EF" stroke="#E2DDD8" stroke-width="1"/>
+        <circle cx="35" cy="56" r="3" stroke="#B8965A" stroke-width="1.2"/>
+        <path d="M31 34 L39 30 L39 38 Z" fill="#B8965A" opacity="0.7"/>
+      </svg>
     </div>
   </div>
 
-  <!-- ────────────────────────────────────────────── -->
-  <!-- MODULE 2 -->
-  <!-- ────────────────────────────────────────────── -->
-  <div class="module">
-    <div class="mod-header">
-      <div class="mod-num-col">
-        <span class="mod-num">02</span>
-        <span class="mod-of">/ 10</span>
-      </div>
-      <div class="mod-text-col">
-        <span class="mod-tag-inline">Strategy</span>
-        <h2 class="mod-title">Cracking the Algorithm</h2>
-        <p class="mod-subtitle">The algorithm doesn't care who you are — it cares how people respond to your content. Watch time, saves, shares, and completion rate are the signals. Understand these and you understand everything.</p>
-      </div>
-      <div class="mod-illus-col illus">
-        <!-- Network / circuit icon -->
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="40" cy="40" r="8" stroke="#B8965A" stroke-width="1.5"/>
-          <circle cx="16" cy="24" r="5" stroke="#B0A898" stroke-width="1.2"/>
-          <circle cx="64" cy="24" r="5" stroke="#B0A898" stroke-width="1.2"/>
-          <circle cx="16" cy="56" r="5" stroke="#B0A898" stroke-width="1.2"/>
-          <circle cx="64" cy="56" r="5" stroke="#B0A898" stroke-width="1.2"/>
-          <line x1="21" y1="26" x2="33" y2="34" stroke="#E2DDD8" stroke-width="1"/>
-          <line x1="59" y1="26" x2="47" y2="34" stroke="#E2DDD8" stroke-width="1"/>
-          <line x1="21" y1="54" x2="33" y2="46" stroke="#E2DDD8" stroke-width="1"/>
-          <line x1="59" y1="54" x2="47" y2="46" stroke="#E2DDD8" stroke-width="1"/>
-          <circle cx="40" cy="40" r="3" fill="#B8965A"/>
-        </svg>
-      </div>
-    </div>
-    <div class="mod-body">
-      <div class="mod-main">
-        <div class="mod-lessons">
-          <p class="lessons-title">Lessons</p>
-          <div class="lesson"><span class="l-num">2.1</span><div class="l-text">How the staged content rollout works<span class="l-note">Every video is first shown to a small test audience of ~200–500 people. Performance here determines whether it's pushed to 5K, then 50K, then beyond. Your first 200 views are a trial run.</span></div></div>
-          <div class="lesson"><span class="l-num">2.2</span><div class="l-text">The five ranking signals — ranked by weight<span class="l-note">Watch time and completion rate carry the most weight. Shares and saves are high-intent signals TikTok trusts. Likes and comments are secondary. Follows barely register.</span></div></div>
-          <div class="lesson"><span class="l-num">2.3</span><div class="l-text">Micro-virality: the 2025 community-first shift<span class="l-note">TikTok now distributes within niche communities first (#SkincareTok, #WellnessTok) before breaking out. Going deep in a niche beats chasing mass virality.</span></div></div>
-          <div class="lesson"><span class="l-num">2.4</span><div class="l-text">Posting consistency and account trust scores<span class="l-note">Regular posting trains the algorithm to treat you as reliable. Accounts that disappear for weeks are demoted. Minimum: 3–4 posts per week to maintain distribution momentum.</span></div></div>
-          <div class="lesson"><span class="l-num">2.5</span><div class="l-text">What silently suppresses your reach<span class="l-note">Reposting content with other platforms' watermarks. Extremely low completion rate. Policy violations. Using trending sounds incorrectly flagged as copyrighted.</span></div></div>
-        </div>
+  <div class="mod-body">
+    <div class="mod-main">
 
-        <!-- Algorithm diagram -->
-        <div class="algo-diagram">
-          <p class="algo-title">How a Video Gets Distributed — The Staged Rollout</p>
-          <div class="algo-steps">
-            <div class="algo-step">
-              <div class="algo-step-n">~300</div>
-              <div class="algo-step-label">Initial test audience</div>
-            </div>
-            <div class="algo-arrow">→</div>
-            <div class="algo-step">
-              <div class="algo-step-n">5K</div>
-              <div class="algo-step-label">If completion rate holds</div>
-            </div>
-            <div class="algo-arrow">→</div>
-            <div class="algo-step">
-              <div class="algo-step-n">50K</div>
-              <div class="algo-step-label">If shares spike</div>
-            </div>
-            <div class="algo-arrow">→</div>
-            <div class="algo-step">
-              <div class="algo-step-n">∞</div>
-              <div class="algo-step-label">Viral if saves + replays compound</div>
+      <!-- LESSONS -->
+      <div class="mod-section">
+        <p class="section-heading">Core Lessons</p>
+
+        <div class="lesson">
+          <div class="lesson-head"><span class="lesson-num">1.1</span><span class="lesson-title">How TikTok's distribution model differs from every other platform</span></div>
+          <div class="lesson-body">
+            <p>On Instagram and YouTube, distribution is fundamentally follower-based. You build an audience, then that audience sees your content. Growth is incremental and tied to how many people subscribe to you. <strong>TikTok reverses this entirely.</strong> Distribution is driven by the algorithm's assessment of content quality — not by who follows you. Every video is tested against a cold audience first, then distributed based on how that audience responds.</p>
+            <p>This means two critical things for beauty brands. First, <strong>follower count is irrelevant to reach on any given video</strong>. A brand with 200 followers can achieve 500,000 views if the content performs. Second, <strong>every video starts from zero</strong>. Past performance helps build algorithm trust over time, but each video is still individually tested. You cannot coast on an existing audience the way you can on Instagram.</p>
+            <p>For skincare and wellness brands specifically, this is a profound opportunity. You do not need years of Instagram growth to reach your target customer. A well-crafted video about your hero ingredient posted today can reach 100,000 people in the skincare community by tomorrow.</p>
+            <div class="callout">
+              <p class="callout-label">Key Insight</p>
+              <p>TikTok's model is closer to a television network than a social network. The platform decides who sees your content — you earn distribution by making content the algorithm trusts will retain viewers.</p>
             </div>
           </div>
         </div>
 
-        <!-- Signal weight table -->
-        <div class="signal-table">
-          <div class="sig-row header">
-            <div class="sig-cell header">Signal</div>
-            <div class="sig-cell header">Relative Weight</div>
-            <div class="sig-cell header">Score</div>
-          </div>
-          <div class="sig-row">
-            <div class="sig-cell">Watch Time</div>
-            <div class="sig-cell"><div class="sig-bar-wrap"><div class="sig-bar"><div class="sig-fill" style="width:95%"></div></div></div></div>
-            <div class="sig-cell"><span class="sig-weight">9.5</span></div>
-          </div>
-          <div class="sig-row">
-            <div class="sig-cell">Completion Rate</div>
-            <div class="sig-cell"><div class="sig-bar-wrap"><div class="sig-bar"><div class="sig-fill" style="width:90%"></div></div></div></div>
-            <div class="sig-cell"><span class="sig-weight">9.0</span></div>
-          </div>
-          <div class="sig-row">
-            <div class="sig-cell">Shares</div>
-            <div class="sig-cell"><div class="sig-bar-wrap"><div class="sig-bar"><div class="sig-fill" style="width:80%"></div></div></div></div>
-            <div class="sig-cell"><span class="sig-weight">8.0</span></div>
-          </div>
-          <div class="sig-row">
-            <div class="sig-cell">Saves</div>
-            <div class="sig-cell"><div class="sig-bar-wrap"><div class="sig-bar"><div class="sig-fill" style="width:75%"></div></div></div></div>
-            <div class="sig-cell"><span class="sig-weight">7.5</span></div>
-          </div>
-          <div class="sig-row">
-            <div class="sig-cell">Replays</div>
-            <div class="sig-cell"><div class="sig-bar-wrap"><div class="sig-bar"><div class="sig-fill" style="width:65%"></div></div></div></div>
-            <div class="sig-cell"><span class="sig-weight">6.5</span></div>
-          </div>
-          <div class="sig-row">
-            <div class="sig-cell">Likes</div>
-            <div class="sig-cell"><div class="sig-bar-wrap"><div class="sig-bar"><div class="sig-fill" style="width:30%"></div></div></div></div>
-            <div class="sig-cell"><span class="sig-weight">3.0</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="mod-sidebar">
-        <p class="sidebar-title">Resources</p>
-        <div class="res-item"><a class="res-link" href="https://blog.hootsuite.com/tiktok-algorithm/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>How the TikTok Algorithm Works in 2025<span class="res-src">Hootsuite</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://www.dataslayer.ai/blog/tiktok-algorithm-2025-complete-guide-for-marketers" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Algorithm 2025: Marketer's Guide<span class="res-src">Dataslayer</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://buffer.com/resources/tiktok-algorithm/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Algorithm Guide: How to Get on FYPs<span class="res-src">Buffer</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://www.fanpagekarma.com/insights/the-2025-tiktok-algorithm-what-you-need-to-know/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>The 2025 TikTok Algorithm<span class="res-src">Fanpage Karma</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://www.sotrender.com/blog/2025/08/tiktok-algorithm/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>Navigating Algorithm Changes in 2025<span class="res-src">Sotrender</span></span></a></div>
-      </div>
-    </div>
-    <div class="mod-chips">
-      <span class="chips-label">Key Concepts</span>
-      <span class="chip">Staged Rollout</span><span class="chip">Watch Time</span><span class="chip">Completion Rate</span><span class="chip">Saves &amp; Shares</span><span class="chip">Micro-Virality</span><span class="chip">Posting Consistency</span>
-    </div>
-  </div>
-
-  <!-- ────────────────────────────────────────────── -->
-  <!-- MODULE 3 -->
-  <!-- ────────────────────────────────────────────── -->
-  <div class="module">
-    <div class="mod-header">
-      <div class="mod-num-col">
-        <span class="mod-num">03</span>
-        <span class="mod-of">/ 10</span>
-      </div>
-      <div class="mod-text-col">
-        <span class="mod-tag-inline">Creation</span>
-        <h2 class="mod-title">Content Strategy & Creation</h2>
-        <p class="mod-subtitle">TikTok users scroll at roughly 300ms per video. Your hook is everything. Then: pacing, format, and the right balance of authenticity and strategy.</p>
-      </div>
-      <div class="mod-illus-col illus">
-        <!-- Camera icon -->
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="10" y="26" width="60" height="40" rx="5" stroke="#B8965A" stroke-width="1.5"/>
-          <circle cx="40" cy="46" r="10" stroke="#B8965A" stroke-width="1.3"/>
-          <circle cx="40" cy="46" r="5" stroke="#B0A898" stroke-width="1"/>
-          <path d="M28 26 L32 18 L48 18 L52 26" stroke="#B0A898" stroke-width="1.2"/>
-          <circle cx="60" cy="34" r="3" fill="#B8965A" opacity="0.6"/>
-        </svg>
-      </div>
-    </div>
-    <div class="mod-body">
-      <div class="mod-main">
-        <div class="mod-lessons">
-          <p class="lessons-title">Lessons</p>
-          <div class="lesson"><span class="l-num">3.1</span><div class="l-text">The hook: your most important two seconds<span class="l-note">Starts in the first frame — not after a logo intro. Use a visual surprise, a bold claim, a provocative question, or unresolved tension. The hook is not the intro, it is the content.</span></div></div>
-          <div class="lesson"><span class="l-num">3.2</span><div class="l-text">Video length: when short wins, when long wins<span class="l-note">Under 30 seconds: maximum rewatches, highest completion rate. 60–90s: tutorials and before/after. 3+ minutes: storytelling and deep dives — only if every second earns its place.</span></div></div>
-          <div class="lesson"><span class="l-num">3.3</span><div class="l-text">Formats that consistently perform<span class="l-note">POV, Get Ready With Me (GRWM), tutorial, before/after transformation, day-in-the-life, product unboxing, and trend participation. Each has its own rules — learn them before you use them.</span></div></div>
-          <div class="lesson"><span class="l-num">3.4</span><div class="l-text">Authenticity vs. polish<span class="l-note">UGC-style content gets 2.4× more engagement than professionally produced brand content on TikTok. "Real" beats "refined." But real still requires strategy — you're engineering spontaneity.</span></div></div>
-          <div class="lesson"><span class="l-num">3.5</span><div class="l-text">Building a 5-pillar content framework<span class="l-note">Plan across five repeating themes: Education, Entertainment, Social Proof, Behind-the-Scenes, and Product. Rotate between them so your feed never goes stale and the algorithm sees variety.</span></div></div>
-          <div class="lesson"><span class="l-num">3.6</span><div class="l-text">Trend timing: how to jump in without looking late<span class="l-note">A trend on day 3 is opportunity. On day 10 it's desperation. If you have to explain the trend to a colleague, it's over. Keep a daily 10-minute TikTok browse on your schedule.</span></div></div>
-        </div>
-
-        <!-- Hook formula visual -->
-        <div class="hook-formula">
-          <div class="hf-cell">
-            <p class="hf-label">Hook Type 1 — Claim</p>
-            <p class="hf-example">"This $12 product replaced my entire skincare routine."</p>
-            <p class="hf-note">Opens with a bold, specific, slightly unbelievable statement. Forces the viewer to stay and find out if it's true.</p>
-          </div>
-          <div class="hf-cell">
-            <p class="hf-label">Hook Type 2 — Question</p>
-            <p class="hf-example">"Why does everyone keep buying this after seeing one video?"</p>
-            <p class="hf-note">Creates a social proof + curiosity gap. The viewer is already part of the story before the video starts.</p>
-          </div>
-          <div class="hf-cell">
-            <p class="hf-label">Hook Type 3 — Visual</p>
-            <p class="hf-example">Close-up of texture, colour payoff, or transformation — zero words.</p>
-            <p class="hf-note">The first frame does all the work. Works best for beauty, food, and product reveals. No caption needed in the first second.</p>
+        <div class="lesson">
+          <div class="lesson-head"><span class="lesson-num">1.2</span><span class="lesson-title">The TikTok audience in 2025 — who is actually on the platform</span></div>
+          <div class="lesson-body">
+            <p>The perception that TikTok is a Gen Z platform is outdated. As of 2025, <strong>25–34 year olds represent the largest single demographic</strong> on TikTok in most Western markets. 35–44 year olds are among the fastest-growing segments. Gen Z (18–24) remains highly active but is no longer the dominant majority.</p>
+            <p>For beauty, skincare, and wellness brands, this is significant. The purchasing power on TikTok is now substantially higher than it was in 2020. <strong>The audience that can afford a £70 serum or a $90 supplement programme is present, active, and making purchasing decisions based on TikTok content.</strong> The split between "content for Gen Z" and "content for buyers" is largely gone.</p>
+            <p>Grooming is also expanding. Male grooming content on TikTok has grown significantly, with #menskincare accumulating billions of views. Brands in this space are early movers and should act accordingly.</p>
           </div>
         </div>
 
-        <div class="mod-example">
-          <p class="example-label">Brand Example</p>
-          <p class="example-brand">e.l.f. Cosmetics</p>
-          <p class="example-text">e.l.f. commissioned an original song — "Eyes. Lips. Face." — specifically for TikTok and launched a Branded Hashtag Challenge (#eyeslipsface). It became one of the most viral brand moments in TikTok history because it felt native: original audio, an open invitation for participation, and no hard sell. Users made over 5 million videos using the sound.</p>
-          <div class="example-stat">
-            <div><span class="ex-stat-n">5M+</span><span class="ex-stat-l">User-created videos</span></div>
-            <div><span class="ex-stat-n">#1</span><span class="ex-stat-l">Trending sound globally</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="mod-sidebar">
-        <p class="sidebar-title">Resources</p>
-        <div class="res-item"><a class="res-link" href="https://houseofmarketers.com/ultimate-tiktok-marketing-strategy-guide/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>10 Step TikTok Marketing Strategy Guide<span class="res-src">House of Marketers</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://www.precis.com/resources/tiktok-strategy-2025-playbook" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Strategy 2025: Research-Backed Playbook<span class="res-src">Precis Digital</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://sojcssm.com/2025/12/best-practices-for-brands-on-tiktok-in-2025/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>Best Practices for Brands on TikTok in 2025<span class="res-src">SOJC Social Media</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://ads.tiktok.com/business/library/TikTok_Follow_Me_Best_Practices_Playbook_EN.pdf" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Creative Best Practices Playbook <span class="badge">Official</span><span class="res-src">TikTok for Business</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://www.teleprompter.com/blog/tiktok-marketing-trends-2025" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Marketing Trends 2025<span class="res-src">Teleprompter.com</span></span></a></div>
-      </div>
-    </div>
-    <div class="mod-chips">
-      <span class="chips-label">Key Concepts</span>
-      <span class="chip">Hook Formula</span><span class="chip">5 Content Pillars</span><span class="chip">UGC-Style Advantage</span><span class="chip">Format Selection</span><span class="chip">Trend Timing</span>
-    </div>
-  </div>
-
-  <!-- ────────────────────────────────────────────── -->
-  <!-- MODULE 4 -->
-  <!-- ────────────────────────────────────────────── -->
-  <div class="module">
-    <div class="mod-header">
-      <div class="mod-num-col">
-        <span class="mod-num">04</span>
-        <span class="mod-of">/ 10</span>
-      </div>
-      <div class="mod-text-col">
-        <span class="mod-tag-inline">SEO</span>
-        <h2 class="mod-title">TikTok SEO & Discovery</h2>
-        <p class="mod-subtitle">TikTok's search bar drives a growing share of content discovery, especially for product research and tutorials. Most brands still treat TikTok as a broadcast channel. Optimising for search is an underused advantage.</p>
-      </div>
-      <div class="mod-illus-col illus">
-        <!-- Magnifying glass icon -->
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="34" cy="34" r="18" stroke="#B8965A" stroke-width="1.5"/>
-          <circle cx="34" cy="34" r="10" stroke="#E2DDD8" stroke-width="1"/>
-          <line x1="47" y1="47" x2="64" y2="64" stroke="#B8965A" stroke-width="2" stroke-linecap="round"/>
-          <line x1="28" y1="34" x2="40" y2="34" stroke="#B0A898" stroke-width="1"/>
-          <line x1="34" y1="28" x2="34" y2="40" stroke="#B0A898" stroke-width="1"/>
-        </svg>
-      </div>
-    </div>
-    <div class="mod-body">
-      <div class="mod-main">
-        <div class="mod-lessons">
-          <p class="lessons-title">Lessons</p>
-          <div class="lesson"><span class="l-num">4.1</span><div class="l-text">How TikTok's search algorithm ranks content<span class="l-note">TikTok combines relevance signals: caption keywords (highest weight), on-screen text (OCR-scanned), spoken audio, hashtags, and engagement velocity on the video.</span></div></div>
-          <div class="lesson"><span class="l-num">4.2</span><div class="l-text">Keyword research for TikTok<span class="l-note">Use TikTok's own search autocomplete bar, the Creative Center Keyword Insights tool, and competitor caption analysis. Find what your audience actually types, not what you think they search.</span></div></div>
-          <div class="lesson"><span class="l-num">4.3</span><div class="l-text">Writing captions that rank<span class="l-note">TikTok allows 2,200 characters. Use the first 150 for your primary keyword naturally placed. Add 2–3 supporting terms in the body. Never keyword-stuff — it reads as spam and hurts engagement.</span></div></div>
-          <div class="lesson"><span class="l-num">4.4</span><div class="l-text">Hashtag strategy: 3–5 specific tags, not 20 generic ones<span class="l-note">One niche community tag (#SkincareTok), one mid-tier specific tag (#HydrationTips), one broader trend tag. Avoid #fyp and #foryou — they add zero ranking signal.</span></div></div>
-          <div class="lesson"><span class="l-num">4.5</span><div class="l-text">On-screen text, voiceover, and audio as layered SEO signals<span class="l-note">TikTok's OCR reads every text overlay. State your primary keyword aloud in the first five seconds. These compounding signals dramatically improve search discoverability.</span></div></div>
-        </div>
-        <div class="mod-example">
-          <p class="example-label">Brand Example</p>
-          <p class="example-brand">Rhode (Hailey Bieber's brand)</p>
-          <p class="example-text">Rhode's "peptide lip treatment" videos dominated TikTok search because every video — caption, on-screen text, and voiceover — naturally included the exact phrase people were already searching. They didn't just make content about the product; they optimised every content layer so the product appeared every time someone searched "peptide lip" or "glazed donut skin."</p>
-          <div class="example-stat">
-            <div><span class="ex-stat-n">#1</span><span class="ex-stat-l">Ranked: "peptide lip" search</span></div>
-            <div><span class="ex-stat-n">Sold out</span><span class="ex-stat-l">3× in first launch month</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="mod-sidebar">
-        <p class="sidebar-title">Resources</p>
-        <div class="res-item"><a class="res-link" href="https://seosherpa.com/tiktok-seo/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok SEO in 2025: Mastering Social Search<span class="res-src">SEO Sherpa</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://blog.hootsuite.com/tiktok-seo/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok SEO Made Easy: Expert Tips<span class="res-src">Hootsuite</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://sproutsocial.com/insights/tiktok-hashtags/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Hashtags: How to Gain More Views<span class="res-src">Sprout Social</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://embedsocial.com/blog/tiktok-seo/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok SEO: How to Rank &amp; Optimise<span class="res-src">EmbedSocial</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://boldtake.io/guides/tiktok-seo-guide-2025" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok SEO: Rank on TikTok Search in 2025<span class="res-src">BoldTake</span></span></a></div>
-      </div>
-    </div>
-    <div class="mod-chips">
-      <span class="chips-label">Key Concepts</span>
-      <span class="chip">Keyword Research</span><span class="chip">Caption Optimisation</span><span class="chip">3–5 Hashtag Rule</span><span class="chip">OCR Text Signals</span><span class="chip">Audio as SEO</span>
-    </div>
-  </div>
-
-  <!-- ────────────────────────────────────────────── -->
-  <!-- MODULE 5 -->
-  <!-- ────────────────────────────────────────────── -->
-  <div class="module">
-    <div class="mod-header">
-      <div class="mod-num-col">
-        <span class="mod-num">05</span>
-        <span class="mod-of">/ 10</span>
-      </div>
-      <div class="mod-text-col">
-        <span class="mod-tag-inline">Partnerships</span>
-        <h2 class="mod-title">Creator Partnerships</h2>
-        <p class="mod-subtitle">34% of TikTok users have purchased a product based on a creator's recommendation. The gap between a deal that converts and one that wastes budget is creator selection, brief quality, and creative freedom.</p>
-      </div>
-      <div class="mod-illus-col illus">
-        <!-- Handshake / connection icon -->
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="24" r="10" stroke="#B8965A" stroke-width="1.5"/>
-          <circle cx="60" cy="24" r="10" stroke="#B0A898" stroke-width="1.3"/>
-          <path d="M10 56 Q20 44 40 44 Q60 44 70 56" stroke="#B8965A" stroke-width="1.3" fill="none"/>
-          <line x1="40" y1="44" x2="40" y2="56" stroke="#E2DDD8" stroke-width="1"/>
-          <circle cx="40" cy="58" r="3" fill="#B8965A" opacity="0.7"/>
-        </svg>
-      </div>
-    </div>
-    <div class="mod-body">
-      <div class="mod-main">
-        <div class="mod-lessons">
-          <p class="lessons-title">Lessons</p>
-          <div class="lesson"><span class="l-num">5.1</span><div class="l-text">The TikTok Creator Marketplace: how to use it<span class="l-note">TikTok's official platform for brand-creator matching. Filter by audience demographics, engagement rate, content category, and estimated reach. Free to access with a Business Account.</span></div></div>
-          <div class="lesson"><span class="l-num">5.2</span><div class="l-text">Creator tiers: what to expect from each<span class="l-note">Nano (1K–10K): highest engagement %, lowest cost, perfect for niche seeding. Micro (10K–100K): niche authority and trust. Macro (100K+): reach at lower engagement ratio. Choose by goal, not follower count.</span></div></div>
-          <div class="lesson"><span class="l-num">5.3</span><div class="l-text">Writing a creator brief that actually gets used<span class="l-note">One page maximum. State: the goal, one key product claim, what not to say, deliverables and timeline. Then stop. Over-scripted briefs kill authenticity — and authenticity is why you hired a creator.</span></div></div>
-          <div class="lesson"><span class="l-num">5.4</span><div class="l-text">Long-term partnerships vs. one-off posts<span class="l-note">Audiences notice one-off sponsorships immediately. Repeated appearances by the same creator build credibility over time. Budget for at least 3 posts before evaluating performance of any partnership.</span></div></div>
-          <div class="lesson"><span class="l-num">5.5</span><div class="l-text">Gifting, seeding, and affiliate structures<span class="l-note">Product gifting = organic UGC with no guaranteed post (but sometimes the best content). Affiliate commission = creator earns when you earn — aligns incentives perfectly at any budget level.</span></div></div>
-        </div>
-        <div class="mod-example">
-          <p class="example-label">Brand Example</p>
-          <p class="example-brand">Gymshark</p>
-          <p class="example-text">Gymshark built one of the most successful creator programmes in fitness by treating creators as long-term brand athletes, not transactional post-providers. They gave creators product, a brand story, and near-total creative freedom — no scripts, no hard sells. Creators could post what felt authentic to their community. The result was years of sustained growth driven almost entirely by creator content that didn't look like advertising.</p>
-          <div class="example-stat">
-            <div><span class="ex-stat-n">4.4M</span><span class="ex-stat-l">TikTok followers</span></div>
-            <div><span class="ex-stat-n">Long-term</span><span class="ex-stat-l">Creator contracts, not one-offs</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="mod-sidebar">
-        <p class="sidebar-title">Resources</p>
-        <div class="res-item"><a class="res-link" href="https://later.com/blog/tiktok-influencer-marketplace/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Creator Marketplace: Ultimate Guide<span class="res-src">Later</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://syncly.app/blog/the-ultimate-guide-to-tiktok-creator-marketing" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>Ultimate Guide to TikTok Creator Marketing<span class="res-src">Syncly</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://popularpays.com/blog/tiktok-creator-marketplace-guide" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>Why Brands Are Looking Beyond the Marketplace<span class="res-src">Popular Pays</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://www.getsaral.com/academy/tiktoks-creator-marketplace" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>Deep Dive into TikTok's Creator Marketplace<span class="res-src">SARAL</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://www.tiktok.com/discover/creator-marketplace-collaboration-2025" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>Creator Marketplace Collaboration 2025 <span class="badge">Official</span><span class="res-src">TikTok</span></span></a></div>
-      </div>
-    </div>
-    <div class="mod-chips">
-      <span class="chips-label">Key Concepts</span>
-      <span class="chip">Creator Tiers</span><span class="chip">Brief Writing</span><span class="chip">Creative Freedom</span><span class="chip">Long-Term Partnerships</span><span class="chip">Affiliate Seeding</span>
-    </div>
-  </div>
-
-  <!-- ────────────────────────────────────────────── -->
-  <!-- MODULE 6 -->
-  <!-- ────────────────────────────────────────────── -->
-  <div class="module">
-    <div class="mod-header">
-      <div class="mod-num-col">
-        <span class="mod-num">06</span>
-        <span class="mod-of">/ 10</span>
-      </div>
-      <div class="mod-text-col">
-        <span class="mod-tag-inline">Commerce</span>
-        <h2 class="mod-title">TikTok Shop & Commerce</h2>
-        <p class="mod-subtitle">TikTok Shop generated over $20 billion GMV in 2024 with projections to triple by 2025 year-end. Discovery → purchase without leaving the app. Conversion rates run 3–5× higher than redirect-based links.</p>
-      </div>
-      <div class="mod-illus-col illus">
-        <!-- Shopping bag icon -->
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 30 L16 70 L64 70 L60 30 Z" stroke="#B8965A" stroke-width="1.5" fill="none"/>
-          <path d="M30 30 Q30 18 40 18 Q50 18 50 30" stroke="#B8965A" stroke-width="1.3" fill="none"/>
-          <line x1="28" y1="44" x2="52" y2="44" stroke="#E2DDD8" stroke-width="1"/>
-          <line x1="30" y1="52" x2="50" y2="52" stroke="#E2DDD8" stroke-width="1"/>
-          <circle cx="40" cy="44" r="3" fill="#B8965A" opacity="0.7"/>
-        </svg>
-      </div>
-    </div>
-    <div class="mod-body">
-      <div class="mod-main">
-        <div class="mod-lessons">
-          <p class="lessons-title">Lessons</p>
-          <div class="lesson"><span class="l-num">6.1</span><div class="l-text">How TikTok Shop's native checkout works<span class="l-note">In-app discovery → in-app purchase → in-app tracking. No redirect, no friction, no abandoned cart from a slow external page. TikTok handles checkout, payment, and order confirmation.</span></div></div>
-          <div class="lesson"><span class="l-num">6.2</span><div class="l-text">Setting up your seller account<span class="l-note">Requirements: registered business entity, government ID, bank account, and product inventory. Approval takes 1–3 days. Commission is ~8% plus a small transaction fee — lower than Amazon's 15%.</span></div></div>
-          <div class="lesson"><span class="l-num">6.3</span><div class="l-text">What products sell on TikTok Shop<span class="l-note">Strong visual appeal. Clear problem → solution story. Before/after potential. Under $50 for impulse buys. Beauty, skincare, gadgets, and lifestyle items consistently top category charts.</span></div></div>
-          <div class="lesson"><span class="l-num">6.4</span><div class="l-text">Live Shopping: the highest-converting format<span class="l-note">Real-time demos, Q&A, and urgency-based offers (limited quantities, flash discounts) during live streams drive the platform's highest purchase intent. Minimum viable live: 30 minutes, scheduled weekly.</span></div></div>
-          <div class="lesson"><span class="l-num">6.5</span><div class="l-text">The 50–80 UGC video rule<span class="l-note">The most successful TikTok Shop products are supported by 50–80 different pieces of UGC showing the product in use. Volume ensures that statistically, something breaks through to the FYP.</span></div></div>
-          <div class="lesson"><span class="l-num">6.6</span><div class="l-text">TikTok Shop Affiliate Programme<span class="l-note">Open your product to any creator to promote on commission. Zero upfront cost, creator earns only when you sell. This is the fastest way to generate UGC volume at scale.</span></div></div>
-        </div>
-        <div class="mod-example">
-          <p class="example-label">Brand Example</p>
-          <p class="example-brand">TIRTIR (Korean Beauty Brand)</p>
-          <p class="example-text">TIRTIR's Mask Fit Red Cushion foundation went viral on TikTok Shop entirely through creator affiliate content. One creator review hit 2M views and sold out the product within hours. TIRTIR had enrolled in the TikTok Shop affiliate programme with zero upfront spend — they simply sent samples to creators who opted in and let the content do the work. They then used the viral video as a Spark Ad to extend reach further.</p>
-          <div class="example-stat">
-            <div><span class="ex-stat-n">Sold out</span><span class="ex-stat-l">In hours after viral video</span></div>
-            <div><span class="ex-stat-n">$0</span><span class="ex-stat-l">Upfront creator spend</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="mod-sidebar">
-        <p class="sidebar-title">Resources</p>
-        <div class="res-item"><a class="res-link" href="https://seller-us.tiktok.com/university/essay?knowledge_id=8984370283431694" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Shop Seller University <span class="badge">Official</span><span class="res-src">TikTok</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://canopymanagement.com/tiktok-shop-complete-guide-for-ecommerce-sellers/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>Complete Guide for E-Commerce Sellers<span class="res-src">Canopy Management</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://www.within.co/blog/tiktok-shop-strategy/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Shop Marketing Strategy for Growth<span class="res-src">WITHIN</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://www.admetrics.io/en/post/how-to-sell-on-tiktok-shop-in-2025" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>How to Sell on TikTok Shop in 2025<span class="res-src">Admetrics</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://www.echotik.live/blog/top-seller-strategies-for-tiktok-shop-in-2025-guide/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>Top Seller Strategies for TikTok Shop<span class="res-src">Echotik</span></span></a></div>
-      </div>
-    </div>
-    <div class="mod-chips">
-      <span class="chips-label">Key Concepts</span>
-      <span class="chip">Native Checkout</span><span class="chip">Live Shopping</span><span class="chip">Product Selection</span><span class="chip">50–80 UGC Rule</span><span class="chip">Affiliate Programme</span>
-    </div>
-  </div>
-
-  <!-- ────────────────────────────────────────────── -->
-  <!-- MODULE 7 -->
-  <!-- ────────────────────────────────────────────── -->
-  <div class="module">
-    <div class="mod-header">
-      <div class="mod-num-col">
-        <span class="mod-num">07</span>
-        <span class="mod-of">/ 10</span>
-      </div>
-      <div class="mod-text-col">
-        <span class="mod-tag-inline">Paid</span>
-        <h2 class="mod-title">Paid Advertising on TikTok</h2>
-        <p class="mod-subtitle">On TikTok, creative is the targeting. The same audience with weak creative will fail. The same creative with broad targeting will often win. The ad format and creative strategy are inseparable.</p>
-      </div>
-      <div class="mod-illus-col illus">
-        <!-- Chart / growth icon -->
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polyline points="12,60 28,40 40,48 56,24 68,28" stroke="#B8965A" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
-          <circle cx="12" cy="60" r="2.5" fill="#B8965A"/>
-          <circle cx="28" cy="40" r="2.5" fill="#B8965A"/>
-          <circle cx="40" cy="48" r="2.5" fill="#B8965A"/>
-          <circle cx="56" cy="24" r="2.5" fill="#B8965A"/>
-          <circle cx="68" cy="28" r="2.5" fill="#B8965A"/>
-          <line x1="12" y1="68" x2="70" y2="68" stroke="#E2DDD8" stroke-width="1"/>
-          <line x1="12" y1="12" x2="12" y2="68" stroke="#E2DDD8" stroke-width="1"/>
-        </svg>
-      </div>
-    </div>
-    <div class="mod-body">
-      <div class="mod-main">
-        <div class="mod-lessons">
-          <p class="lessons-title">Lessons</p>
-          <div class="lesson"><span class="l-num">7.1</span><div class="l-text">TikTok ad formats: which one fits which objective<span class="l-note">In-Feed Ads (most common, lowest CPM). TopView (high-impact, highest cost). Branded Hashtag Challenges (community participation). Spark Ads (boosting existing content). Shopping Ads (catalogue-driven).</span></div></div>
-          <div class="lesson"><span class="l-num">7.2</span><div class="l-text">Spark Ads: the highest-performing format in 2025<span class="l-note">Boost organic posts — your own or a creator's — as ads. They keep the comment section, social proof, and native feel. Spark Ads outperform standard In-Feed Ads on almost every KPI. Start here.</span></div></div>
-          <div class="lesson"><span class="l-num">7.3</span><div class="l-text">Creative best practices: ads that don't look like ads<span class="l-note">No logo in first 3 seconds. Open with your strongest visual. Use TikTok's native fonts and trending (non-copyrighted) sounds. Caption everything. 15–30 seconds is the sweet spot for performance.</span></div></div>
-          <div class="lesson"><span class="l-num">7.4</span><div class="l-text">Targeting: start broad, then narrow<span class="l-note">TikTok's interest targeting is less granular than Meta's — but strong creative finds its audience without tight targeting. Start broad. Narrow only after 1,000+ conversions in the learning phase.</span></div></div>
-          <div class="lesson"><span class="l-num">7.5</span><div class="l-text">Smart+ Catalogue Ads and automated campaigns<span class="l-note">For product catalogues: TikTok's Smart+ automatically serves the most relevant product to each user based on purchase intent signals. Best for scaling past initial traction at $200+/day budgets.</span></div></div>
-          <div class="lesson"><span class="l-num">7.6</span><div class="l-text">Budget, learning phase, and what to expect<span class="l-note">Minimum campaign budget: $50/day. Expect a 7–14 day learning phase before optimisation stabilises. Do not make major changes (creative, targeting, budget) during the learning phase — you restart it.</span></div></div>
-        </div>
-        <div class="mod-example">
-          <p class="example-label">Brand Example</p>
-          <p class="example-brand">Chipotle</p>
-          <p class="example-text">Chipotle ran one of the earliest brand Spark Ad strategies by identifying organic employee videos that were performing well and boosting them — rather than producing expensive brand ads. The videos felt completely native because they were native. When one employee's "behind the scenes at Chipotle" video got traction organically, Chipotle amplified it as a Spark Ad and it became one of their highest-converting campaigns of the year.</p>
-          <div class="example-stat">
-            <div><span class="ex-stat-n">Lower CPM</span><span class="ex-stat-l">vs. traditional In-Feed Ads</span></div>
-            <div><span class="ex-stat-n">Native</span><span class="ex-stat-l">No production spend on top content</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="mod-sidebar">
-        <p class="sidebar-title">Resources</p>
-        <div class="res-item"><a class="res-link" href="https://ads.tiktok.com/help/article/tiktok-ads-best-practices" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Ads Best Practices <span class="badge">Official</span><span class="res-src">TikTok for Business</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://ads.tiktok.com/help/article/tiktok-industry-best-practices" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>Industry Best Practices <span class="badge">Official</span><span class="res-src">TikTok for Business</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://buffer.com/resources/tiktok-ads/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>Ultimate Guide to TikTok Advertising in 2025<span class="res-src">Buffer</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://www.triplewhale.com/blog/tiktok-ad-spec" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Ad Specs 2025: Complete Format Guide<span class="res-src">Triple Whale</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://ads.tiktok.com/business/en-US/products/ads" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Advertising Solutions <span class="badge">Official</span><span class="res-src">TikTok for Business</span></span></a></div>
-      </div>
-    </div>
-    <div class="mod-chips">
-      <span class="chips-label">Key Concepts</span>
-      <span class="chip">Spark Ads</span><span class="chip">Creative Is Targeting</span><span class="chip">Learning Phase</span><span class="chip">Smart+ Catalogue</span><span class="chip">Start Broad</span>
-    </div>
-  </div>
-
-  <!-- ────────────────────────────────────────────── -->
-  <!-- MODULE 8 -->
-  <!-- ────────────────────────────────────────────── -->
-  <div class="module">
-    <div class="mod-header">
-      <div class="mod-num-col">
-        <span class="mod-num">08</span>
-        <span class="mod-of">/ 10</span>
-      </div>
-      <div class="mod-text-col">
-        <span class="mod-tag-inline">Analytics</span>
-        <h2 class="mod-title">Analytics & Measurement</h2>
-        <p class="mod-subtitle">Likes are a vanity metric. Completion rate, saves per view, and profile visits driven by content are the signals that predict whether your brand is actually landing — or just being scrolled past.</p>
-      </div>
-      <div class="mod-illus-col illus">
-        <!-- Bar chart icon -->
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="12" y="44" width="12" height="22" stroke="#B0A898" stroke-width="1.2" fill="#F7F4EF"/>
-          <rect x="30" y="30" width="12" height="36" stroke="#B8965A" stroke-width="1.5" fill="#F7F4EF"/>
-          <rect x="48" y="20" width="12" height="46" stroke="#B8965A" stroke-width="1.5" fill="rgba(184,150,90,0.15)"/>
-          <line x1="8" y1="66" x2="68" y2="66" stroke="#E2DDD8" stroke-width="1"/>
-          <circle cx="54" cy="16" r="4" fill="#B8965A" opacity="0.8"/>
-          <polyline points="18,40 36,26 54,16" stroke="#B8965A" stroke-width="1" stroke-dasharray="3 2" fill="none"/>
-        </svg>
-      </div>
-    </div>
-    <div class="mod-body">
-      <div class="mod-main">
-        <div class="mod-lessons">
-          <p class="lessons-title">Lessons</p>
-          <div class="lesson"><span class="l-num">8.1</span><div class="l-text">The metrics that actually predict success<span class="l-note">Average watch time, completion rate (target: 40%+), shares per view, saves per view, and profile visits driven by a specific post. These indicate real resonance — not passive scrolling.</span></div></div>
-          <div class="lesson"><span class="l-num">8.2</span><div class="l-text">Reading your audience analytics for optimal posting time<span class="l-note">Ignore generic "best time to post" guides. Open TikTok Analytics → Followers tab → Activity. Your specific audience's active hours are the only hours that matter for your account.</span></div></div>
-          <div class="lesson"><span class="l-num">8.3</span><div class="l-text">The monthly content audit process<span class="l-note">Rank your last 30 videos by completion rate. Identify the top 25%. Find what the hook, format, topic, and length had in common. Then make more of that. This is your only data-driven brief.</span></div></div>
-          <div class="lesson"><span class="l-num">8.4</span><div class="l-text">Connecting TikTok content to revenue<span class="l-note">Install TikTok Pixel on your website. Use UTM parameters on all bio links. TikTok's attribution window: 7-day click, 1-day view. For TikTok Shop, use the native Seller Center dashboard — attribution is automatic.</span></div></div>
-          <div class="lesson"><span class="l-num">8.5</span><div class="l-text">2025 performance benchmarks<span class="l-note">Average engagement rate: 2.5–5%. Good completion rate: 40%+. Strong VTR for ads: 15%+. Profile visit rate from a post: 2–4% signals high audience pull. Use these to calibrate, not to obsess.</span></div></div>
-        </div>
-        <div class="mod-example">
-          <p class="example-label">What Good Looks Like</p>
-          <p class="example-brand">Benchmark Reference</p>
-          <p class="example-text">A skincare brand posting 4× per week should aim for: an average completion rate above 38% across all videos, at least one video per month driving 500+ profile visits, and a saves-to-views ratio of at least 1.5% on tutorial content. These aren't industry averages — they're the internal targets of brands that consistently grow on TikTok without paid support.</p>
-          <div class="example-stat">
-            <div><span class="ex-stat-n">40%+</span><span class="ex-stat-l">Completion rate target</span></div>
-            <div><span class="ex-stat-n">1.5%+</span><span class="ex-stat-l">Saves-to-views on tutorials</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="mod-sidebar">
-        <p class="sidebar-title">Resources</p>
-        <div class="res-item"><a class="res-link" href="https://vidlo.video/blog/tiktok-marketing-strategies/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Marketing Strategies — Metrics Deep Dive<span class="res-src">Vidlo</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://ads.tiktok.com/help/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Business Help Center <span class="badge">Official</span><span class="res-src">TikTok</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://sproutsocial.com/insights/tiktok-marketing/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Metrics That Matter in 2025<span class="res-src">Sprout Social</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://www.adrenalinex.com/blog/tiktok-brand-audit-guide/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Brand Audit &amp; Strategy Guide 2025<span class="res-src">Adrenaline</span></span></a></div>
-      </div>
-    </div>
-    <div class="mod-chips">
-      <span class="chips-label">Key Concepts</span>
-      <span class="chip">Completion Rate</span><span class="chip">Saves Per View</span><span class="chip">TikTok Pixel</span><span class="chip">Monthly Content Audit</span><span class="chip">Attribution Window</span>
-    </div>
-  </div>
-
-  <!-- ────────────────────────────────────────────── -->
-  <!-- MODULE 9 -->
-  <!-- ────────────────────────────────────────────── -->
-  <div class="module">
-    <div class="mod-header">
-      <div class="mod-num-col">
-        <span class="mod-num">09</span>
-        <span class="mod-of">/ 10</span>
-      </div>
-      <div class="mod-text-col">
-        <span class="mod-tag-inline">Community</span>
-        <h2 class="mod-title">Community & Engagement</h2>
-        <p class="mod-subtitle">Follower count is a lagging indicator. Community depth — the conversations your content sparks, the duets people make, the comments that write themselves — is what separates brands with longevity from one-hit wonders.</p>
-      </div>
-      <div class="mod-illus-col illus">
-        <!-- People / community icon -->
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="40" cy="26" r="10" stroke="#B8965A" stroke-width="1.5"/>
-          <path d="M20 62 Q20 48 40 48 Q60 48 60 62" stroke="#B8965A" stroke-width="1.3" fill="none"/>
-          <circle cx="16" cy="30" r="6" stroke="#B0A898" stroke-width="1.1"/>
-          <path d="M6 54 Q6 44 16 44 Q22 44 26 48" stroke="#B0A898" stroke-width="1" fill="none"/>
-          <circle cx="64" cy="30" r="6" stroke="#B0A898" stroke-width="1.1"/>
-          <path d="M74 54 Q74 44 64 44 Q58 44 54 48" stroke="#B0A898" stroke-width="1" fill="none"/>
-        </svg>
-      </div>
-    </div>
-    <div class="mod-body">
-      <div class="mod-main">
-        <div class="mod-lessons">
-          <p class="lessons-title">Lessons</p>
-          <div class="lesson"><span class="l-num">9.1</span><div class="l-text">Reply to comments — especially with video<span class="l-note">TikTok's "reply with video" feature turns a comment into a new piece of content addressed directly to that viewer. It drives engagement loops and proves to the algorithm that your content generates real conversation.</span></div></div>
-          <div class="lesson"><span class="l-num">9.2</span><div class="l-text">Duets and Stitches: how to use both<span class="l-note">Duets: react side-by-side to community content or creator posts. Stitches: clip + respond to a specific moment in another video. Use both to participate in trends and generate community dialogue.</span></div></div>
-          <div class="lesson"><span class="l-num">9.3</span><div class="l-text">Building a recognisable brand voice<span class="l-note">Choose 2–3 personality traits (e.g., warm + knowledgeable + slightly self-aware). Apply them consistently in captions, comment replies, and video dialogue. Consistency builds familiarity. Familiarity builds trust.</span></div></div>
-          <div class="lesson"><span class="l-num">9.4</span><div class="l-text">Using your comment section as content research<span class="l-note">Pin thoughtful questions that spark debate. Comments like "wait, does this work for…?" are content briefs. Turn the most-asked questions into your next video. Your community is writing your content calendar.</span></div></div>
-          <div class="lesson"><span class="l-num">9.5</span><div class="l-text">TikTok LIVE for community acceleration<span class="l-note">Regular LIVEs (even 20–30 minutes, weekly) dramatically accelerate audience loyalty. Lives are boosted by the algorithm separately from regular posts and consistently pull new followers at low cost.</span></div></div>
-        </div>
-        <div class="mod-example">
-          <p class="example-label">Brand Example</p>
-          <p class="example-brand">Ryanair</p>
-          <p class="example-text">Ryanair's TikTok became a case study in community engagement because it leaned entirely into its reputation — self-deprecating, chaotic, and completely unbothered by being the butt of its own jokes. Every comment was an opportunity for a witty reply. Every complaint became content. The brand voice was so consistent and so native to TikTok culture that the comment section became the entertainment — and people followed just to read the replies.</p>
-          <div class="example-stat">
-            <div><span class="ex-stat-n">2.2M</span><span class="ex-stat-l">Followers (organic only)</span></div>
-            <div><span class="ex-stat-n">Comment replies</span><span class="ex-stat-l">Core engagement strategy</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="mod-sidebar">
-        <p class="sidebar-title">Resources</p>
-        <div class="res-item"><a class="res-link" href="https://sproutsocial.com/insights/tiktok-marketing/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Marketing: Community Section<span class="res-src">Sprout Social</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://houseofmarketers.com/ultimate-tiktok-marketing-strategy-guide/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Community Strategy Guide<span class="res-src">House of Marketers</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://www.traackr.com/influencer-marketing-blog/tiktok-algorithm-evolution-influencer-marketing-strategy" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Algorithm &amp; Community Strategy<span class="res-src">Traackr</span></span></a></div>
-        <div class="res-item"><a class="res-link" href="https://vidlo.video/blog/tiktok-marketing-strategies/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Engagement Rate Benchmarks<span class="res-src">Vidlo</span></span></a></div>
-      </div>
-    </div>
-    <div class="mod-chips">
-      <span class="chips-label">Key Concepts</span>
-      <span class="chip">Video Replies</span><span class="chip">Duets &amp; Stitches</span><span class="chip">Brand Voice</span><span class="chip">Comment Strategy</span><span class="chip">TikTok LIVE</span>
-    </div>
-  </div>
-
-  <!-- ────────────────────────────────────────────── -->
-  <!-- MODULE 10 -->
-  <!-- ────────────────────────────────────────────── -->
-  <div class="module" style="background: var(--ink); color: #fff;">
-    <div class="mod-header" style="background: var(--ink); border-bottom-color: rgba(255,255,255,0.08);">
-      <div class="mod-num-col" style="border-right-color: rgba(255,255,255,0.08);">
-        <span class="mod-num">10</span>
-        <span class="mod-of" style="color: rgba(255,255,255,0.3);">/ 10</span>
-      </div>
-      <div class="mod-text-col">
-        <span class="mod-tag-inline" style="color: rgba(255,255,255,0.3);">Action Plan</span>
-        <h2 class="mod-title" style="color: #fff;">Your 30-Day Launch Plan</h2>
-        <p class="mod-subtitle" style="color: rgba(255,255,255,0.55);">Strategy means nothing until it hits publish. Week-by-week framework to launch, test, build, and scale — starting from zero.</p>
-      </div>
-      <div class="mod-illus-col illus" style="border-left-color: rgba(255,255,255,0.08);">
-        <!-- Rocket icon -->
-        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M40 12 Q52 20 52 40 L52 56 L40 64 L28 56 L28 40 Q28 20 40 12Z" stroke="#B8965A" stroke-width="1.5" fill="none"/>
-          <circle cx="40" cy="36" r="6" stroke="#B8965A" stroke-width="1.2"/>
-          <path d="M28 52 L16 60 L20 48" stroke="rgba(255,255,255,0.25)" stroke-width="1.2" fill="none"/>
-          <path d="M52 52 L64 60 L60 48" stroke="rgba(255,255,255,0.25)" stroke-width="1.2" fill="none"/>
-          <line x1="36" y1="64" x2="32" y2="72" stroke="#B8965A" stroke-width="1" opacity="0.5"/>
-          <line x1="40" y1="66" x2="40" y2="74" stroke="#B8965A" stroke-width="1" opacity="0.5"/>
-          <line x1="44" y1="64" x2="48" y2="72" stroke="#B8965A" stroke-width="1" opacity="0.5"/>
-        </svg>
-      </div>
-    </div>
-    <div class="mod-body" style="background: var(--ink);">
-      <div class="mod-main" style="border-right-color: rgba(255,255,255,0.08);">
-        <div class="mod-lessons" style="padding-bottom: 32px;">
-          <p class="lessons-title" style="color: rgba(255,255,255,0.3);">Week by Week</p>
-          <div class="lesson" style="border-bottom-color: rgba(255,255,255,0.08);">
-            <span class="l-num">W1</span>
-            <div class="l-text" style="color: rgba(255,255,255,0.85);">
-              Infrastructure &amp; Research (Days 1–7)
-              <span class="l-note" style="color: rgba(255,255,255,0.45);">Set up Business Account + TikTok Pixel. Audit 10 competitors. Define 3–5 content pillars. Identify 5–10 micro-creators for outreach. Set up TikTok Shop if you sell products. Install the Creator Marketplace.</span>
+        <div class="lesson">
+          <div class="lesson-head"><span class="lesson-num">1.3</span><span class="lesson-title">The beauty subculture map — which community does your brand belong to?</span></div>
+          <div class="lesson-body">
+            <p>TikTok's algorithm is community-first. Before a video reaches the broader FYP, it circulates within its relevant niche community. <strong>Every beauty and wellness brand needs to know precisely which community it belongs to — and speak that community's language.</strong></p>
+            <div class="framework">
+              <p class="framework-head">Beauty & Wellness Subculture Map on TikTok</p>
+              <div class="framework-body" style="padding:0;">
+                <div class="framework-row">
+                  <div class="framework-cell">
+                    <p class="fw-cell-label">#SkincareTok</p>
+                    <p class="fw-cell-title">Skincare Science</p>
+                    <p class="fw-cell-text">Evidence-based skincare, ingredient deep dives, routine breakdowns, dermatologist commentary. Brands: The Ordinary, CeraVe, Paula's Choice.</p>
+                  </div>
+                  <div class="framework-cell">
+                    <p class="fw-cell-label">#CleanBeauty</p>
+                    <p class="fw-cell-title">Conscious Beauty</p>
+                    <p class="fw-cell-text">Natural ingredients, sustainability, formulation transparency, "what's in your products" content. Brands: Tatcha, Youth to the People, Glow Recipe.</p>
+                  </div>
+                  <div class="framework-cell">
+                    <p class="fw-cell-label">#GlowUp</p>
+                    <p class="fw-cell-title">Transformation</p>
+                    <p class="fw-cell-text">Before/after, routine reveals, product testing results. Aspirational but achievable. Broad appeal across all beauty verticals.</p>
+                  </div>
+                </div>
+                <div class="framework-row">
+                  <div class="framework-cell">
+                    <p class="fw-cell-label">#WellnessTok</p>
+                    <p class="fw-cell-title">Holistic Health</p>
+                    <p class="fw-cell-text">Supplements, inner beauty, stress and skin connection, morning rituals, gut-skin axis. Brands: Ritual, Moon Juice, Hum Nutrition.</p>
+                  </div>
+                  <div class="framework-cell">
+                    <p class="fw-cell-label">#HairTok</p>
+                    <p class="fw-cell-title">Haircare & Grooming</p>
+                    <p class="fw-cell-text">Treatments, styling, scalp health, product reviews. Massive reach for haircare brands. Brands: Olaplex, Function of Beauty, Act+Acre.</p>
+                  </div>
+                  <div class="framework-cell">
+                    <p class="fw-cell-label">#MensGrooming</p>
+                    <p class="fw-cell-title">Men's Personal Care</p>
+                    <p class="fw-cell-text">Skincare for men, beard care, routine building, product education. Fastest-growing beauty subcategory. Early-mover advantage is significant.</p>
+                  </div>
+                </div>
+              </div>
             </div>
+            <p>The mistake most brands make is trying to straddle multiple communities at once. <strong>You need a primary community to seed into before you can cross over.</strong> Drunk Elephant lives in #SkincareTok. Ritual lives in #WellnessTok. Olaplex lives in #HairTok. Pick your home and master it before you branch out.</p>
           </div>
-          <div class="lesson" style="border-bottom-color: rgba(255,255,255,0.08);">
-            <span class="l-num">W2</span>
-            <div class="l-text" style="color: rgba(255,255,255,0.85);">
-              First Content Sprint (Days 8–14)
-              <span class="l-note" style="color: rgba(255,255,255,0.45);">Post once daily. Lead with your strongest hook-based content. Test at least two formats (e.g., tutorial vs. POV). Reply to every comment within 4 hours. Do not touch analytics yet — let it breathe.</span>
-            </div>
-          </div>
-          <div class="lesson" style="border-bottom-color: rgba(255,255,255,0.08);">
-            <span class="l-num">W3</span>
-            <div class="l-text" style="color: rgba(255,255,255,0.85);">
-              Review, Iterate &amp; Creator Activation (Days 15–21)
-              <span class="l-note" style="color: rgba(255,255,255,0.45);">Run your first content audit — rank by completion rate. Double down on the top-performing format. Send gifting packages to 5–10 micro-creators. Post your first LIVE (even 20 minutes). Run one Spark Ad on your best post ($20/day test).</span>
-            </div>
-          </div>
-          <div class="lesson" style="border-bottom-color: rgba(255,255,255,0.08);">
-            <span class="l-num">W4</span>
-            <div class="l-text" style="color: rgba(255,255,255,0.85);">
-              Scale What's Working (Days 22–30)
-              <span class="l-note" style="color: rgba(255,255,255,0.45);">Increase to 1–2 posts daily using proven formats. Launch a low-budget ($50/day) In-Feed or Spark Ad campaign. Begin second creator wave. Set your monthly analytics review cadence. Plan Month 2 based on real data, not assumptions.</span>
-            </div>
-          </div>
-          <div class="lesson" style="border-bottom: none;">
-            <span class="l-num" style="color: var(--gold);">✓</span>
-            <div class="l-text" style="color: rgba(255,255,255,0.85);">
-              Non-negotiable rules for sustained growth
-              <span class="l-note" style="color: rgba(255,255,255,0.45);">Never repost watermarked content from other platforms. Never buy followers. Never go dark for 3+ days. Never change a campaign during its learning phase. Never optimise for likes. Never post without a hook.</span>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-head"><span class="lesson-num">1.4</span><span class="lesson-title">Setting up your Business Account for discoverability</span></div>
+          <div class="lesson-body">
+            <p>Your TikTok profile is the first thing a viewer checks after watching your content. If your profile doesn't convert curiosity into a follow — or a click to your link — the video's work is wasted. <strong>Every element of your profile should have a job.</strong></p>
+            <div class="steps">
+              <div class="step"><span class="step-n">1</span><div class="step-content"><strong>Profile name and username</strong> Include your brand name exactly as it appears elsewhere. Consistency across platforms builds searchability. Avoid numbers or underscores that reduce memorability.</div></div>
+              <div class="step"><span class="step-n">2</span><div class="step-content"><strong>Bio: keyword + value prop + CTA</strong> You have 80 characters. Use them for one keyword (e.g., "science-backed skincare"), one value proposition ("formulated with dermatologists"), and one action ("Shop below"). Do not waste space on quotes or punctuation art.</div></div>
+              <div class="step"><span class="step-n">3</span><div class="step-content"><strong>Profile picture</strong> Use your logo on a clean, light background. The image appears at 64×64px on most screens — ensure it is legible at that size. No face shots for brand accounts.</div></div>
+              <div class="step"><span class="step-n">4</span><div class="step-content"><strong>Link in bio</strong> Use a Linktree or equivalent with a maximum of three links: your website, your TikTok Shop (if applicable), and your most important campaign page. More than three links and CTR drops sharply.</div></div>
+              <div class="step"><span class="step-n">5</span><div class="step-content"><strong>Pinned videos</strong> You can pin three videos to the top of your profile. Pin your highest-performing video, your brand introduction, and your best product demonstration. These are the three videos every new profile visitor sees first.</div></div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="mod-sidebar" style="background: var(--ink);">
-        <p class="sidebar-title" style="color: rgba(255,255,255,0.3);">Resources</p>
-        <div class="res-item" style="border-bottom-color: rgba(255,255,255,0.08);">
-          <a class="res-link" style="color: rgba(255,255,255,0.75);" href="https://houseofmarketers.com/ultimate-tiktok-marketing-strategy-guide/" target="_blank" rel="noopener">
-            <span class="res-arrow">↗</span><span>10 Step TikTok Marketing Strategy Guide<span class="res-src">House of Marketers</span></span>
-          </a>
+
+        <div class="lesson">
+          <div class="lesson-head"><span class="lesson-num">1.5</span><span class="lesson-title">TikTok's culture contract — what the platform expects from brands</span></div>
+          <div class="lesson-body">
+            <p>Every platform has an unwritten contract with its users about what content feels native and what feels like an intrusion. On Instagram, polished aesthetics and aspirational imagery feel appropriate. On TikTok, that same polished content feels like an advertisement — and TikTok users are exceptionally good at identifying and skipping ads.</p>
+            <p><strong>The TikTok culture contract for brands has four clauses:</strong> Be entertaining or genuinely useful. Participate in platform culture (sounds, trends, formats) rather than importing content from elsewhere. Be a person first, a brand second. And earn your place in the FYP rather than paying your way in — at least initially.</p>
+            <p>This does not mean brands cannot be professional or premium. Charlotte Tilbury's TikTok is extremely high-quality — but it follows TikTok formats, uses trending sounds, and features real people applying products in real time. The signal is "I belong here," not "I'm advertising here."</p>
+            <div class="callout callout-warn">
+              <p class="callout-label">Common Mistake</p>
+              <p><strong>Repurposing Instagram Reels or YouTube thumbnails as TikTok content.</strong> The platform's OCR (optical character recognition) and its users both identify off-platform content immediately. Watermarks from other platforms actively suppress TikTok distribution. Always create natively.</p>
+            </div>
+          </div>
         </div>
-        <div class="res-item" style="border-bottom-color: rgba(255,255,255,0.08);">
-          <a class="res-link" style="color: rgba(255,255,255,0.75);" href="https://www.precis.com/resources/tiktok-strategy-2025-playbook" target="_blank" rel="noopener">
-            <span class="res-arrow">↗</span><span>TikTok Strategy 2025 Playbook<span class="res-src">Precis Digital</span></span>
-          </a>
+
+        <div class="case-study">
+          <p class="cs-label">Brand Case Study</p>
+          <p class="cs-brand">Drunk Elephant</p>
+          <span class="cs-category">Luxury Skincare · @drunkelephant</span>
+          <p class="cs-body">Drunk Elephant's TikTok rise is a masterclass in community seeding before scale. Rather than launching with polished brand films, the brand allowed its existing community of skincare enthusiasts to drive its TikTok presence. Products like the D-Bronzi Drops and the Protini Polypeptide Cream went viral through <strong>organic skincare creator content</strong> rather than paid placements — because the products had visible, demonstrable results that made for compelling before/after videos.</p>
+          <p class="cs-body">The brand's own TikTok account follows #SkincareTok norms precisely: ingredient education, routine demonstrations, and community engagement. It never looks like advertising because it participates in the community rather than broadcasting to it. When the Lala Retro Whipped Cream controversy in 2024 hit, the brand's established community credibility actually protected it — engaged followers defended and contextualised the recall rather than turning on the brand.</p>
+          <div class="cs-breakdown">
+            <p class="cs-breakdown-label">What Drunk Elephant does right on TikTok</p>
+            <ul class="cs-points">
+              <li>Positions within #SkincareTok community, not just general beauty</li>
+              <li>Products are visually demonstrable — texture, glow, transformation</li>
+              <li>Ingredient education content earns saves and shares (high-value signals)</li>
+              <li>Allows creators to post authentically without over-scripted briefs</li>
+              <li>Community trust built before paid amplification</li>
+            </ul>
+          </div>
         </div>
-        <div class="res-item" style="border-bottom-color: rgba(255,255,255,0.08);">
-          <a class="res-link" style="color: rgba(255,255,255,0.75);" href="https://ads.tiktok.com/business/en-US" target="_blank" rel="noopener">
-            <span class="res-arrow">↗</span><span>TikTok for Business — Start Here <span class="badge" style="border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.3);">Official</span><span class="res-src">TikTok</span></span>
-          </a>
-        </div>
-        <div class="res-item" style="border-bottom-color: rgba(255,255,255,0.08);">
-          <a class="res-link" style="color: rgba(255,255,255,0.75);" href="https://www.hivehq.ai/blog/ecommerce-growth-strategies" target="_blank" rel="noopener">
-            <span class="res-arrow">↗</span><span>10 Proven E-Commerce Growth Strategies<span class="res-src">HiveHQ</span></span>
-          </a>
-        </div>
-        <div class="res-item" style="border-bottom: none;">
-          <a class="res-link" style="color: rgba(255,255,255,0.75);" href="https://kase.com/blog/complete-tiktok-shop-guide/" target="_blank" rel="noopener">
-            <span class="res-arrow">↗</span><span>Complete TikTok Shop Guide for Brands<span class="res-src">Kase</span></span>
-          </a>
+
+        <div class="practice">
+          <p class="practice-label">Practice Exercise 1.1</p>
+          <h4>Map Your Brand's TikTok Home</h4>
+          <ol>
+            <li>Open TikTok and search for <strong>three hashtags</strong> you believe your brand belongs to. Spend 20 minutes watching content in each. Note the tone, format, language, and creators.</li>
+            <li>Identify your <strong>primary community</strong> — the one where your product fits most naturally without explanation.</li>
+            <li>Find <strong>five accounts in that community</strong> that consistently perform well. Audit their last 10 videos: what formats do they use? What hooks? What topics drive their highest engagement?</li>
+            <li>Write a one-paragraph <strong>"community brief"</strong> describing the norms, tone, and content expectations of the community your brand is entering.</li>
+          </ol>
         </div>
       </div>
     </div>
-    <div class="mod-chips" style="background: #161616; border-top-color: rgba(255,255,255,0.08);">
-      <span class="chips-label">30-Day Milestones</span>
-      <span class="chip" style="background:#1e1e1e; border-color:#2a2a2a; color:#B0A898;">Profile Live</span>
-      <span class="chip" style="background:#1e1e1e; border-color:#2a2a2a; color:#B0A898;">14 Videos Posted</span>
-      <span class="chip" style="background:#1e1e1e; border-color:#2a2a2a; color:#B0A898;">First Creator Active</span>
-      <span class="chip" style="background:#1e1e1e; border-color:#2a2a2a; color:#B0A898;">Spark Ad Running</span>
-      <span class="chip" style="background:#1e1e1e; border-color:#2a2a2a; color:#B0A898;">Analytics Reviewed</span>
-      <span class="chip" style="background:#1e1e1e; border-color:var(--gold); color:var(--gold);">Month 2 Planned</span>
+
+    <div class="mod-sidebar">
+      <p class="sidebar-title">Resources</p>
+      <div class="res-item"><a class="res-link" href="https://sproutsocial.com/insights/tiktok-marketing/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Marketing: Complete Guide for Brands<span class="res-src">Sprout Social</span></span></a></div>
+      <div class="res-item"><a class="res-link" href="https://buffer.com/resources/tiktok-marketing/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>The Complete Guide to TikTok Marketing<span class="res-src">Buffer</span></span></a></div>
+      <div class="res-item"><a class="res-link" href="https://www.shopify.com/blog/tiktok-marketing" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Marketing Guide<span class="res-src">Shopify</span></span></a></div>
+      <div class="res-item"><a class="res-link" href="https://www.mmi-analytics.com/blog/5-content-trends-from-the-best-skincare-brands-on-tiktok" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>5 Content Trends from Best Skincare Brands on TikTok<span class="res-src">MMI Analytics</span></span></a></div>
+      <div class="res-item"><a class="res-link" href="https://favoured.co.uk/tiktok-beauty-trends-2025-cosmetic-brand-strategies/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Beauty Trends 2025: Cosmetic Brand Strategies<span class="res-src">Favoured</span></span></a></div>
+      <div class="res-item"><a class="res-link" href="https://business.tiktok.com/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Business Center <span class="badge">Official</span><span class="res-src">TikTok</span></span></a></div>
+      <div class="sidebar-divider"></div>
+      <p class="sidebar-note"><strong>Beauty Subcultures to Study</strong> Before building content, spend time observing: #SkincareTok · #CleanBeauty · #WellnessTok · #HairTok · #MakeupartistTikTok · #MensSkincare · #GlowUp · #SkincareRoutine</p>
     </div>
   </div>
+
+  <div class="mod-chips">
+    <span class="chips-label">Key Concepts</span>
+    <span class="chip">FYP Distribution</span><span class="chip">Community Seeding</span><span class="chip">Beauty Subcultures</span><span class="chip">Profile Optimisation</span><span class="chip">Platform Culture Contract</span><span class="chip">Native Content</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MODULE 2 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="module" id="m2">
+  <div class="mod-header">
+    <div class="mod-num-col"><span class="mod-num">02</span><span class="mod-of">/ 10</span></div>
+    <div class="mod-text-col">
+      <span class="mod-tag-inline">Strategy · ~75 min</span>
+      <h2 class="mod-title">Cracking the Algorithm</h2>
+      <p class="mod-subtitle">The algorithm is not a mystery — it is a performance system with knowable rules. It measures how real people respond to your content and distributes accordingly. Every signal it tracks can be influenced by deliberate creative choices.</p>
+    </div>
+    <div class="mod-illus-col">
+      <svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="35" cy="35" r="7" stroke="#B8965A" stroke-width="1.4"/>
+        <circle cx="14" cy="22" r="5" stroke="#B0A898" stroke-width="1.1"/>
+        <circle cx="56" cy="22" r="5" stroke="#B0A898" stroke-width="1.1"/>
+        <circle cx="14" cy="48" r="5" stroke="#B0A898" stroke-width="1.1"/>
+        <circle cx="56" cy="48" r="5" stroke="#B0A898" stroke-width="1.1"/>
+        <line x1="19" y1="24" x2="29" y2="30" stroke="#E2DDD8" stroke-width="1"/>
+        <line x1="51" y1="24" x2="41" y2="30" stroke="#E2DDD8" stroke-width="1"/>
+        <line x1="19" y1="46" x2="29" y2="40" stroke="#E2DDD8" stroke-width="1"/>
+        <line x1="51" y1="46" x2="41" y2="40" stroke="#E2DDD8" stroke-width="1"/>
+        <circle cx="35" cy="35" r="3" fill="#B8965A"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="mod-body">
+    <div class="mod-main">
+      <div class="mod-section">
+        <p class="section-heading">Core Lessons</p>
+
+        <div class="lesson">
+          <div class="lesson-head"><span class="lesson-num">2.1</span><span class="lesson-title">The staged rollout: how every video gets distributed</span></div>
+          <div class="lesson-body">
+            <p>When you post a video on TikTok, it is not immediately shown to a large audience. The algorithm uses a <strong>staged testing process</strong> to determine a video's quality before investing distribution resources in it. Understanding this process helps you make better creative decisions — and stops you from panicking after the first hour.</p>
+            <div class="framework">
+              <p class="framework-head">The Staged Rollout — How TikTok Distributes Your Video</p>
+              <div class="framework-body" style="padding:0;">
+                <div class="framework-row">
+                  <div class="framework-cell">
+                    <p class="fw-cell-label">Stage 1</p>
+                    <p class="fw-cell-title">~200–500 views</p>
+                    <p class="fw-cell-text">TikTok shows the video to a small seed audience, partly your followers, partly cold FYP users. This happens within the first hour of posting. The algorithm measures completion rate and immediate engagement signals.</p>
+                  </div>
+                  <div class="framework-cell">
+                    <p class="fw-cell-label">Stage 2</p>
+                    <p class="fw-cell-title">~5,000 views</p>
+                    <p class="fw-cell-text">If Stage 1 performance meets the algorithm's threshold (typically 30–40% completion rate minimum), the video is pushed to a slightly larger, still-targeted audience. Shares become the dominant signal here.</p>
+                  </div>
+                  <div class="framework-cell">
+                    <p class="fw-cell-label">Stage 3</p>
+                    <p class="fw-cell-title">~50,000 views</p>
+                    <p class="fw-cell-text">Strong performers get pushed to a much wider FYP audience. At this stage, saves and replays drive continued distribution. The algorithm is now asking: "Do people want to come back to this?"</p>
+                  </div>
+                  <div class="framework-cell">
+                    <p class="fw-cell-label">Stage 4+</p>
+                    <p class="fw-cell-title">Viral territory</p>
+                    <p class="fw-cell-text">Videos that sustain engagement across Stage 3 get pushed further. There is no ceiling. The algorithm keeps pushing if engagement sustains. This is where 1M+ view videos live.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p><strong>The practical implication:</strong> a video that performs weakly in its first 200–300 views will not reach Stage 2 regardless of how good the rest of the content is. The hook is not just creative strategy — it is algorithm strategy. If you lose viewers in the first two seconds, you never escape the seed audience.</p>
+            <div class="callout">
+              <p class="callout-label">For Skincare Brands</p>
+              <p>Tutorial and before/after content naturally performs well in Stage 1 because viewers who click on skincare content tend to watch it through. A 30-second "how to layer your actives" video can achieve 60–80% completion rates in its seed audience, which almost guarantees progression to Stage 2.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-head"><span class="lesson-num">2.2</span><span class="lesson-title">The ranking signals — what TikTok measures and how much each matters</span></div>
+          <div class="lesson-body">
+            <p>TikTok's algorithm uses a set of signals to score each video's quality. These signals are not equal — some carry dramatically more weight than others. Understanding the hierarchy lets you optimise intentionally.</p>
+            <div class="signal-table">
+              <div class="sig-row hdr"><div class="sig-cell hdr">Signal</div><div class="sig-cell hdr">Weight &amp; Explanation</div><div class="sig-cell hdr">Score</div></div>
+              <div class="sig-row"><div class="sig-cell"><strong>Watch Time / Avg Duration</strong></div><div class="sig-cell"><div class="sig-bar-wrap"><div class="sig-bar"><div class="sig-fill" style="width:95%"></div></div><span style="font-size:.72rem;color:var(--mid)">Heaviest single signal. Measures total seconds watched across all viewers.</span></div></div><div class="sig-cell"><span class="sig-score">9.5</span></div></div>
+              <div class="sig-row"><div class="sig-cell"><strong>Completion Rate</strong></div><div class="sig-cell"><div class="sig-bar-wrap"><div class="sig-bar"><div class="sig-fill" style="width:90%"></div></div><span style="font-size:.72rem;color:var(--mid)">% of viewers who watch to the end. Target 40%+. Short videos achieve this more easily.</span></div></div><div class="sig-cell"><span class="sig-score">9.0</span></div></div>
+              <div class="sig-row"><div class="sig-cell"><strong>Shares</strong></div><div class="sig-cell"><div class="sig-bar-wrap"><div class="sig-bar"><div class="sig-fill" style="width:82%"></div></div><span style="font-size:.72rem;color:var(--mid)">Highest-intent signal. Someone sharing your video vouches for it to their community.</span></div></div><div class="sig-cell"><span class="sig-score">8.2</span></div></div>
+              <div class="sig-row"><div class="sig-cell"><strong>Saves</strong></div><div class="sig-cell"><div class="sig-bar-wrap"><div class="sig-bar"><div class="sig-fill" style="width:78%"></div></div><span style="font-size:.72rem;color:var(--mid)">Signals reference-quality content. Ingredient guides, routines, and tutorials drive saves.</span></div></div><div class="sig-cell"><span class="sig-score">7.8</span></div></div>
+              <div class="sig-row"><div class="sig-cell"><strong>Replays</strong></div><div class="sig-cell"><div class="sig-bar-wrap"><div class="sig-bar"><div class="sig-fill" style="width:68%"></div></div><span style="font-size:.72rem;color:var(--mid)">Strong signal. Before/after and transformation videos consistently drive replays.</span></div></div><div class="sig-cell"><span class="sig-score">6.8</span></div></div>
+              <div class="sig-row"><div class="sig-cell"><strong>Comments</strong></div><div class="sig-cell"><div class="sig-bar-wrap"><div class="sig-bar"><div class="sig-fill" style="width:50%"></div></div><span style="font-size:.72rem;color:var(--mid)">Valuable but weighted by quality. "Omg what is the product??" &gt; "🔥🔥🔥"</span></div></div><div class="sig-cell"><span class="sig-score">5.0</span></div></div>
+              <div class="sig-row"><div class="sig-cell"><strong>Likes</strong></div><div class="sig-cell"><div class="sig-bar-wrap"><div class="sig-bar"><div class="sig-fill" style="width:28%"></div></div><span style="font-size:.72rem;color:var(--mid)">Lower weight than most people assume. Do not optimise for likes.</span></div></div><div class="sig-cell"><span class="sig-score">2.8</span></div></div>
+            </div>
+            <p><strong>What this means for your content strategy:</strong> Design every video to maximise watch time first, then create a specific reason for someone to share or save it. For skincare content, "save this for your routine" or "share this with a friend who struggles with [skin concern]" are genuine calls to action — not empty asks — because the content has reference value.</p>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-head"><span class="lesson-num">2.3</span><span class="lesson-title">Micro-virality: the community-first distribution shift of 2025</span></div>
+          <div class="lesson-body">
+            <p>In 2025, TikTok updated its distribution model to <strong>prioritise community relevance before mass reach</strong>. Rather than pushing content to a random FYP audience, TikTok now seeds content within relevant niche communities first. A skincare video is shown to #SkincareTok users before it reaches a general audience. A wellness video circulates in #WellnessTok before it goes broader.</p>
+            <p>This is called micro-virality — going viral within a niche community before crossing into mainstream TikTok. For beauty and wellness brands, this is an advantage because it means <strong>your initial audience is already interested in your category</strong>. A deeply engaged reaction from 5,000 skincare enthusiasts carries more distribution weight than a mildly engaged response from 50,000 general FYP users.</p>
+            <p>The strategic implication: <strong>depth before breadth</strong>. Use community-specific hashtags. Create content that feels home to your niche. Use the language, the formats, and the references your community uses. Once your videos establish credibility within the community, they will cross into the broader FYP naturally.</p>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-head"><span class="lesson-num">2.4</span><span class="lesson-title">Posting consistency and the account trust score</span></div>
+          <div class="lesson-body">
+            <p>TikTok builds what is effectively a trust score for each account over time. Accounts that post consistently, stay within their niche, and regularly produce content that passes the Stage 1 threshold get a distribution advantage. The algorithm treats them as reliable sources of quality content and gives new uploads a slightly larger seed audience and longer evaluation window.</p>
+            <p><strong>Minimum posting frequency to maintain trust:</strong> 3–4 times per week for a growing account. Less than this and the algorithm effectively resets your trust score, treating each video as if you are a newer, less-tested account. For a beauty brand in launch phase, 5–7 posts per week for the first 60 days is the target.</p>
+            <div class="callout">
+              <p class="callout-label">Posting Strategy for Beauty Brands</p>
+              <p>Do not post all your best content in week one. <strong>Distribute quality evenly across your first 30 posts.</strong> The algorithm builds your trust score based on consistent performance — one viral video surrounded by weak content hurts your account more than no viral videos at all. Steady, above-average performers build more durable reach than spikes followed by drops.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-head"><span class="lesson-num">2.5</span><span class="lesson-title">What silently suppresses your reach</span></div>
+          <div class="lesson-body">
+            <p>Several behaviours reduce your distribution without any visible penalty or warning. These are the silent suppressors that explain why some accounts post regularly but plateau at low view counts.</p>
+            <div class="steps">
+              <div class="step"><span class="step-n">1</span><div class="step-content"><strong>Watermarks from other platforms</strong> — Reposting TikTok videos from Instagram Reels or YouTube Shorts with platform watermarks tells the algorithm the content was not created for TikTok. Distribution is actively suppressed.</div></div>
+              <div class="step"><span class="step-n">2</span><div class="step-content"><strong>Low completion rate on first 200 views</strong> — If your first seed audience drops off before 30%, the video rarely escapes Stage 1. The hook is the single largest variable here.</div></div>
+              <div class="step"><span class="step-n">3</span><div class="step-content"><strong>Posting gaps of 5+ days</strong> — Extended breaks reset your account's momentum. The algorithm's trust in your consistency resets, and the next video you post is treated more conservatively.</div></div>
+              <div class="step"><span class="step-n">4</span><div class="step-content"><strong>Audio copyright issues</strong> — Using trending sounds that are flagged for copyright in commercial accounts restricts where your video can be shown. Always check commercial music licensing in your Business Account's Sound Library.</div></div>
+              <div class="step"><span class="step-n">5</span><div class="step-content"><strong>Over-promising / misleading health claims</strong> — TikTok's content policy flags skincare and wellness content that makes unsubstantiated medical claims. Such videos are distributed with restrictions or suppressed. Stay within claim compliance.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-study">
+          <p class="cs-label">Brand Case Study</p>
+          <p class="cs-brand">CeraVe</p>
+          <span class="cs-category">Mass-Market Skincare · @cerave</span>
+          <p class="cs-body">CeraVe's TikTok dominance is one of the most studied brand-algorithm alignment stories in beauty marketing. The brand <strong>did not manufacture its TikTok success — it recognised and amplified it</strong>. Skincare creator Hyram Yarbro began recommending CeraVe organically based on its ingredient profile and price point. His audience, embedded in #SkincareTok, trusted his recommendations. The videos accumulated millions of views — none of them sponsored by CeraVe.</p>
+          <p class="cs-body">CeraVe's strategic response was not to flood TikTok with brand content. It was to <strong>become the most credible skincare brand in the community's eyes</strong> — through dermatologist partnerships, educational content about its key ingredients (ceramides, hyaluronic acid, niacinamide), and supporting creator credibility rather than replacing it. The result was a brand that grew from $350M in annual sales to over $2B, driven significantly by TikTok organic reach.</p>
+          <div class="cs-breakdown">
+            <p class="cs-breakdown-label">Algorithm lessons from CeraVe's strategy</p>
+            <ul class="cs-points">
+              <li>Educational content on ceramides, cleansers, and moisturisers drives saves — high-weight algorithm signal</li>
+              <li>Dermatologist-endorsed messaging increases community credibility and share rate within #SkincareTok</li>
+              <li>Consistent, ingredient-focused posting builds account trust over time</li>
+              <li>Allowing organic creator content to run without over-commercialising it preserves authentic engagement signals</li>
+              <li>Clinical + affordable positioning means the content is shareworthy ("pass this to your friend who can't afford the expensive stuff")</li>
+            </ul>
+          </div>
+          <div class="cs-stats">
+            <div><span class="cs-stat-n">$2B+</span><span class="cs-stat-l">Annual sales (TikTok-era)</span></div>
+            <div><span class="cs-stat-n">4B+</span><span class="cs-stat-l">#CeraVe TikTok views</span></div>
+          </div>
+        </div>
+
+        <div class="practice">
+          <p class="practice-label">Practice Exercise 2.1</p>
+          <h4>Audit Your Content Against the Signal Hierarchy</h4>
+          <ol>
+            <li>Take your three most recent TikTok videos (or three competitor videos if you haven't posted yet). For each, note the <strong>completion rate, saves, shares, and comments</strong> from the analytics panel.</li>
+            <li>Rank each video against the signal hierarchy above. Which signals are you strong on? Which are you weak on?</li>
+            <li>For each weak signal, <strong>identify one specific creative change</strong> that would improve it. Example: low saves on a tutorial → add "save this for when you build your routine" as an explicit mid-video CTA.</li>
+            <li>Write one sentence describing what your content would look like if it were <strong>optimised for saves specifically</strong> — what type of content makes someone want to come back to it?</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="mod-sidebar">
+      <p class="sidebar-title">Resources</p>
+      <div class="res-item"><a class="res-link" href="https://blog.hootsuite.com/tiktok-algorithm/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>How the TikTok Algorithm Works in 2025<span class="res-src">Hootsuite</span></span></a></div>
+      <div class="res-item"><a class="res-link" href="https://www.dataslayer.ai/blog/tiktok-algorithm-2025-complete-guide-for-marketers" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Algorithm 2025: Marketer's Guide<span class="res-src">Dataslayer</span></span></a></div>
+      <div class="res-item"><a class="res-link" href="https://buffer.com/resources/tiktok-algorithm/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Algorithm Guide: How to Get on FYPs<span class="res-src">Buffer</span></span></a></div>
+      <div class="res-item"><a class="res-link" href="https://houseofmarketers.com/how-cerave-transformed-gen-z-skincare-brand/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>How CeraVe Transformed into Gen Z's Skincare Brand<span class="res-src">House of Marketers</span></span></a></div>
+      <div class="res-item"><a class="res-link" href="https://www.fanpagekarma.com/insights/the-2025-tiktok-algorithm-what-you-need-to-know/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>The 2025 TikTok Algorithm<span class="res-src">Fanpage Karma</span></span></a></div>
+      <div class="res-item"><a class="res-link" href="https://www.sotrender.com/blog/2025/08/tiktok-algorithm/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>Navigating Algorithm Changes in 2025<span class="res-src">Sotrender</span></span></a></div>
+    </div>
+  </div>
+
+  <div class="mod-chips">
+    <span class="chips-label">Key Concepts</span>
+    <span class="chip">Staged Rollout</span><span class="chip">Watch Time</span><span class="chip">Completion Rate</span><span class="chip">Saves &amp; Shares</span><span class="chip">Micro-Virality</span><span class="chip">Account Trust Score</span><span class="chip">Silent Suppressors</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MODULE 3 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="module" id="m3">
+  <div class="mod-header">
+    <div class="mod-num-col"><span class="mod-num">03</span><span class="mod-of">/ 10</span></div>
+    <div class="mod-text-col">
+      <span class="mod-tag-inline">Creation · ~90 min</span>
+      <h2 class="mod-title">Content Strategy & Creation</h2>
+      <p class="mod-subtitle">You have approximately 1.5 seconds before a viewer decides whether to keep watching or scroll. Content strategy on TikTok is fundamentally about engineering that decision — repeatedly, at scale, across every format available to you.</p>
+    </div>
+    <div class="mod-illus-col">
+      <svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="22" width="54" height="36" rx="4" stroke="#B8965A" stroke-width="1.4"/>
+        <circle cx="35" cy="40" r="9" stroke="#B8965A" stroke-width="1.3"/>
+        <circle cx="35" cy="40" r="4" stroke="#B0A898" stroke-width="1"/>
+        <path d="M26 22 L29 16 L41 16 L44 22" stroke="#B0A898" stroke-width="1.2"/>
+        <circle cx="52" cy="30" r="3" fill="#B8965A" opacity="0.6"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="mod-body">
+    <div class="mod-main">
+      <div class="mod-section">
+        <p class="section-heading">Core Lessons</p>
+
+        <div class="lesson">
+          <div class="lesson-head"><span class="lesson-num">3.1</span><span class="lesson-title">The hook: the only part of the video guaranteed to be seen</span></div>
+          <div class="lesson-body">
+            <p>Every other element of your video is conditional — viewers only experience it if they stayed past the first two seconds. The hook is unconditional. It is the moment your video makes its case for attention. <strong>Treat the hook as a standalone creative decision, separate from the rest of the video.</strong></p>
+            <p>There are four hook categories that consistently perform for beauty and wellness content. Each works by triggering a different psychological mechanism — curiosity, social proof, self-interest, or pattern interruption.</p>
+            <div class="hook-table">
+              <div class="hook-row hdr"><div class="hook-cell hdr">Type</div><div class="hook-cell hdr">Example + Why It Works</div></div>
+              <div class="hook-row"><div class="hook-cell hook-type">Claim</div><div class="hook-cell"><p class="hook-example">"This £14 serum replaced my £180 retinol."</p><p class="hook-note">Specificity + price contrast creates immediate curiosity. The viewer needs to know if it's true. Works especially well for mass-market skincare brands competing against luxury.</p></div></div>
+              <div class="hook-row"><div class="hook-cell hook-type">Question</div><div class="hook-cell"><p class="hook-example">"Is your SPF actually making your hyperpigmentation worse?"</p><p class="hook-note">Creates a knowledge gap + self-relevance. Any viewer with hyperpigmentation must now stay to find out. The embedded threat (it might be making it worse) makes non-engagement feel risky.</p></div></div>
+              <div class="hook-row"><div class="hook-cell hook-type">Visual</div><div class="hook-cell"><p class="hook-example">Extreme close-up of skin texture before product application — no words.</p><p class="hook-note">The visual does all the work. The brain pattern-matches to "before/after" immediately and holds attention to see the "after." Best for transformation and treatment content.</p></div></div>
+              <div class="hook-row"><div class="hook-cell hook-type">Social Proof</div><div class="hook-cell"><p class="hook-example">"Everyone in the comments asked me what I use on my skin, so here it is."</p><p class="hook-note">Pre-validates the content. Signals community interest before the viewer has committed. Creates FOMO — if everyone else is asking, the answer must be worth hearing.</p></div></div>
+              <div class="hook-row"><div class="hook-cell hook-type">Counter-claim</div><div class="hook-cell"><p class="hook-example">"Stop double cleansing. Here's why it's damaging your barrier."</p><p class="hook-note">Challenges established behaviour, triggering defensiveness or curiosity. Extremely effective in #SkincareTok where the audience considers themselves educated. The disagreement is the hook.</p></div></div>
+            </div>
+            <div class="callout callout-warn">
+              <p class="callout-label">What kills a hook</p>
+              <p><strong>Starting with your logo, a brand intro, or "Hi, welcome back to my channel."</strong> These add 3–5 seconds of zero-information before the content begins. Every second of your intro is a second the algorithm is recording low engagement. Start with the content itself.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-head"><span class="lesson-num">3.2</span><span class="lesson-title">The 12 content formats for beauty and wellness brands</span></div>
+          <div class="lesson-body">
+            <p>Each TikTok format has its own internal rules, typical length, and primary algorithm signal it drives. Knowing which format to use for which goal separates strategic content planning from posting-and-hoping.</p>
+            <div class="format-grid">
+              <div class="format-cell">
+                <span class="format-tag">Saves &amp; Shares</span>
+                <p class="format-name">Ingredient Education</p>
+                <p class="format-desc">Break down one ingredient — what it does, what skin type it suits, how to layer it. The Ordinary built its entire TikTok presence on this format. Drives enormous saves.</p>
+              </div>
+              <div class="format-cell">
+                <span class="format-tag">Replays &amp; Shares</span>
+                <p class="format-name">Before / After</p>
+                <p class="format-desc">Show a visible skin, hair, or body transformation. The brain literally replays to compare. Keep the before and after framed identically — same lighting, same angle — so the change is undeniable.</p>
+              </div>
+              <div class="format-cell">
+                <span class="format-tag">Watch Time</span>
+                <p class="format-name">Get Ready With Me (GRWM)</p>
+                <p class="format-desc">Real-time routine demonstration. Natural watch-through format — the viewer is "hanging out." Works for skincare routines, morning wellness rituals, grooming routines. Ideal 60–90 seconds.</p>
+              </div>
+              <div class="format-cell">
+                <span class="format-tag">Saves</span>
+                <p class="format-name">Routine Breakdown</p>
+                <p class="format-desc">Step-by-step skincare or wellness routine with named products and the reason for each. Designed to be saved and referenced. "Save this for when you build your routine."</p>
+              </div>
+              <div class="format-cell">
+                <span class="format-tag">Comments</span>
+                <p class="format-name">Myth-Busting</p>
+                <p class="format-desc">"You do not need to moisturise if you have oily skin." Challenges common beliefs. Generates comments from disagreers and confirmers alike — both fuel distribution.</p>
+              </div>
+              <div class="format-cell">
+                <span class="format-tag">Shares</span>
+                <p class="format-name">Product First Impression</p>
+                <p class="format-desc">Honest, unscripted first use of a product. The authenticity is the content. Strong for new product launches and creator gifting campaigns. Extremely shareable.</p>
+              </div>
+              <div class="format-cell">
+                <span class="format-tag">Watch Time</span>
+                <p class="format-name">Day-in-the-Life</p>
+                <p class="format-desc">Shows your brand's products in real life context. How does this serum fit into someone's actual morning? Humanises the brand without selling. Works well for wellness and supplement brands.</p>
+              </div>
+              <div class="format-cell">
+                <span class="format-tag">Shares</span>
+                <p class="format-name">Dupe vs. Original</p>
+                <p class="format-desc">"The £12 version of the £90 moisturiser." Extremely shareable because it has gift value — people send it to friends. Can position mass-market brands against luxury or luxury brands against misconception.</p>
+              </div>
+              <div class="format-cell">
+                <span class="format-tag">Comments</span>
+                <p class="format-name">POV / Scenario</p>
+                <p class="format-desc">"POV: you finally find a foundation shade that matches." Creates emotional identification. Works across beauty and grooming. The comment section fills with "this is literally me."</p>
+              </div>
+              <div class="format-cell">
+                <span class="format-tag">Replays</span>
+                <p class="format-name">Texture / Sensorial</p>
+                <p class="format-desc">Close-up of product texture, application, spread, scent description. Taps into ASMR and sensory satisfaction. Extremely effective for premium skincare and fragrance-based wellness.</p>
+              </div>
+              <div class="format-cell">
+                <span class="format-tag">Shares</span>
+                <p class="format-name">Trend Participation</p>
+                <p class="format-desc">Apply your brand to a current trending sound, format, or challenge. Done well, it feels native. Done late, it feels desperate. Time-sensitive — act within 48 hours of a trend emerging.</p>
+              </div>
+              <div class="format-cell">
+                <span class="format-tag">Saves &amp; Comments</span>
+                <p class="format-name">Q&amp;A / Comment Reply</p>
+                <p class="format-desc">Answer a question from your comments in video form. Rewards your community for engaging, generates more questions, and shows the algorithm that your comment section is active.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-head"><span class="lesson-num">3.3</span><span class="lesson-title">Building a 5-pillar content framework for your brand</span></div>
+          <div class="lesson-body">
+            <p>Posting randomly — whatever feels right on a given day — is the fastest way to plateau. A content pillar framework gives you a structured rotation of content types that collectively cover your audience's needs, keep the algorithm engaged, and ensure you never run out of ideas.</p>
+            <div class="framework">
+              <p class="framework-head">The 5-Pillar Content Framework for Beauty &amp; Wellness</p>
+              <div class="framework-body" style="padding:0;">
+                <div class="framework-row">
+                  <div class="framework-cell">
+                    <p class="fw-cell-label">Pillar 1 — Education</p>
+                    <p class="fw-cell-title">Teach something</p>
+                    <p class="fw-cell-text">Ingredient explainers, myth-busting, routine science, "how it actually works" content. Drives saves. Builds authority. Example: "Why niacinamide and vitamin C shouldn't always be layered."</p>
+                  </div>
+                  <div class="framework-cell">
+                    <p class="fw-cell-label">Pillar 2 — Transformation</p>
+                    <p class="fw-cell-title">Show results</p>
+                    <p class="fw-cell-text">Before/afters, product results over time, skin journey documentation. Drives replays and shares. This is your proof. Example: "30 days using [product] — here's my skin."</p>
+                  </div>
+                  <div class="framework-cell">
+                    <p class="fw-cell-label">Pillar 3 — Community</p>
+                    <p class="fw-cell-title">Involve your audience</p>
+                    <p class="fw-cell-text">Q&amp;A replies, comment-led videos, "you asked so here it is" content. Drives comments and follows. Shows the algorithm your audience is engaged. Builds loyalty.</p>
+                  </div>
+                </div>
+                <div class="framework-row">
+                  <div class="framework-cell">
+                    <p class="fw-cell-label">Pillar 4 — Culture</p>
+                    <p class="fw-cell-title">Participate in TikTok</p>
+                    <p class="fw-cell-text">Trend participation, trending sounds applied to your brand, POV formats, duets/stitches with relevant creators. Keeps your account feeling native and current.</p>
+                  </div>
+                  <div class="framework-cell">
+                    <p class="fw-cell-label">Pillar 5 — Product</p>
+                    <p class="fw-cell-title">Sell without selling</p>
+                    <p class="fw-cell-text">First impressions, texture shots, usage demonstrations, "how I use it" content. Product is present but the content earns its own watch time. Not an ad — an experience.</p>
+                  </div>
+                  <div class="framework-cell" style="background:var(--cream);">
+                    <p class="fw-cell-label">Rotation Guide</p>
+                    <p class="fw-cell-title">Suggested ratio</p>
+                    <p class="fw-cell-text">Education: 30% · Transformation: 25% · Community: 20% · Culture: 15% · Product: 10%. Heavy education + transformation bias works well for skincare. Adjust based on your analytics month-by-month.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-head"><span class="lesson-num">3.4</span><span class="lesson-title">Video length strategy: when short wins, when long wins</span></div>
+          <div class="lesson-body">
+            <p>There is no universally correct video length on TikTok — the right length is the minimum required to fully deliver the content's value. <strong>Never pad a video to make it longer. Never cut a video short to make it snappy if it loses essential information.</strong></p>
+            <div class="steps">
+              <div class="step"><span class="step-n">A</span><div class="step-content"><strong>Under 15 seconds</strong> — Maximum rewatch rate, highest completion rate. Ideal for: one-ingredient facts, texture reveals, product comparisons, trend participation. The short length triggers repeated viewing, which drives replays.</div></div>
+              <div class="step"><span class="step-n">B</span><div class="step-content"><strong>15–30 seconds</strong> — The sweet spot for most beauty content. Long enough for a complete thought, short enough to maintain attention. Ideal for: myth-busting, first impressions, before/after reveals, quick tutorials. Highest frequency of FYP placement.</div></div>
+              <div class="step"><span class="step-n">C</span><div class="step-content"><strong>30–90 seconds</strong> — Requires genuine substance to justify the length. Ideal for: full routine breakdowns, multi-step tutorials, product comparisons, "here's everything I know about [ingredient]." Every additional second must earn its place or completion rate collapses.</div></div>
+              <div class="step"><span class="step-n">D</span><div class="step-content"><strong>3–10 minutes</strong> — TikTok now supports this. Only viable if the content genuinely warrants it. Ideal for: deep-dive educational content, extended before/after with documented journey, live-style content. Extremely high bar for watch time maintenance.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-head"><span class="lesson-num">3.5</span><span class="lesson-title">Authenticity vs. polish: finding the right balance for premium beauty brands</span></div>
+          <div class="lesson-body">
+            <p>This is the tension every beauty brand faces: <strong>your brand identity demands a certain level of quality and visual coherence; TikTok's algorithm rewards content that feels real and unfiltered</strong>. The solution is not to choose one over the other — it is to understand what "authentic" actually means on this platform.</p>
+            <p>Authentic does not mean unedited, poorly lit, or low-effort. It means <strong>the content looks like it was made for TikTok by someone who uses TikTok</strong>. Charlotte Tilbury's videos are beautifully lit and well-produced — but they use TikTok's native text overlays, trending audio, and real people applying products, not campaign actors. The production quality is high; the format signals are native.</p>
+            <p>UGC-style content — content that mimics how a real user would post about a product — receives 2.4× more engagement than professionally produced brand content on TikTok. The implication is not "film everything on an iPhone in bad light." It is: <strong>design your content to look like the best version of user-generated content, not the best version of a TV commercial.</strong></p>
+            <div class="callout">
+              <p class="callout-label">The Premium Brand Formula</p>
+              <p>High-quality lighting + real people (not actors) + native TikTok formats + product visible in context (not on a white plinth) + trending audio = content that passes as authentic while maintaining brand quality.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-head"><span class="lesson-num">3.6</span><span class="lesson-title">Trend participation: timing, relevance, and when to skip it</span></div>
+          <div class="lesson-body">
+            <p>Trends on TikTok have a lifecycle: emergence (days 1–3), peak (days 4–7), saturation (days 8–14), and decline. <strong>Brands that participate in the emergence phase look culturally fluent. Brands that participate in saturation look like they have a slow social team.</strong> The rule is binary: either you are fast enough to be in the first wave, or you skip the trend entirely.</p>
+            <p>Not every trend is appropriate for your brand — and that is fine. A wellness supplement brand does not need to participate in every viral dance format. <strong>Select trends where your product or brand personality can add genuine value or humour to the format.</strong> Forced participation in irrelevant trends reads as desperation and can actively damage brand perception in the communities that matter most to you.</p>
+            <p>The most durable TikTok trend strategy for beauty brands is <strong>audio-led participation</strong>: using trending sounds with your own visual content, rather than copying the exact visual format of a trend. Audio-led participation is faster to execute, more flexible, and still captures the algorithmic boost from trending audio without requiring your brand to imitate a format that may not suit it.</p>
+          </div>
+        </div>
+
+        <div class="case-study">
+          <p class="cs-label">Brand Case Study</p>
+          <p class="cs-brand">The Ordinary</p>
+          <span class="cs-category">Accessible Skincare Science · @theordinary</span>
+          <p class="cs-body">The Ordinary built TikTok's most education-dominant beauty account by treating the platform as a classroom rather than a shop window. Their content is almost entirely built on Pillar 1 (Education) — with a sustained commitment to ingredient science, layering guides, and formulation transparency. The #theordinary hashtag surpassed <strong>4 billion views</strong> driven almost entirely by this approach.</p>
+          <p class="cs-body">Key to their strategy: <strong>they made complexity accessible</strong>. Skincare science is intimidating to most consumers. The Ordinary's content breaks down AHAs, retinoids, and peptides into vocabulary anyone can absorb in 30 seconds. This is exactly the type of content that drives saves — people save it to reference later when they're building their routine. High saves = strong algorithm signal = sustained organic distribution.</p>
+          <p class="cs-body">Their hook formula is also consistent: <strong>name the ingredient, name the problem it solves, show the product</strong>. This formula is simple enough to replicate across hundreds of videos while still earning engagement each time, because each video addresses a different ingredient or concern.</p>
+          <div class="cs-breakdown">
+            <p class="cs-breakdown-label">What to replicate from The Ordinary's content strategy</p>
+            <ul class="cs-points">
+              <li>Build a content series around individual ingredients — one video per ingredient, cross-referenced to your product</li>
+              <li>Design every educational video to be "save-worthy" — ask yourself: would a viewer come back to this later?</li>
+              <li>Use consistent visual formatting across your series so viewers recognise your content format instantly</li>
+              <li>Address the real questions people search for ("can I use niacinamide with retinol?") rather than brand messages nobody is searching for</li>
+            </ul>
+          </div>
+          <div class="cs-stats">
+            <div><span class="cs-stat-n">4B+</span><span class="cs-stat-l">#theordinary views</span></div>
+            <div><span class="cs-stat-n">1.8M+</span><span class="cs-stat-l">TikTok followers</span></div>
+          </div>
+        </div>
+
+        <div class="practice">
+          <p class="practice-label">Practice Exercise 3.1</p>
+          <h4>Build Your 30-Video Content Plan</h4>
+          <ol>
+            <li>Using the 5-pillar framework above, allocate 30 video ideas across the pillars: <strong>9 Education, 7 Transformation, 6 Community, 4 Culture, 4 Product.</strong></li>
+            <li>For each Education video, write the hook using one of the five hook formulas (Claim, Question, Visual, Social Proof, Counter-claim). The hook should be written out word for word.</li>
+            <li>Identify which of the <strong>12 content formats</strong> each video uses and note its primary algorithm signal (saves, shares, replays, watch time, comments).</li>
+            <li>Assign a length target to each video based on the length strategy above. Note: if a video requires more than 60 seconds, ask yourself whether the information could be split across two 30-second videos instead.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="mod-sidebar">
+      <p class="sidebar-title">Resources</p>
+      <div class="res-item"><a class="res-link" href="https://houseofmarketers.com/ultimate-tiktok-marketing-strategy-guide/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>10 Step TikTok Marketing Strategy Guide<span class="res-src">House of Marketers</span></span></a></div>
+      <div class="res-item"><a class="res-link" href="https://www.precis.com/resources/tiktok-strategy-2025-playbook" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Strategy 2025: Research-Backed Playbook<span class="res-src">Precis Digital</span></span></a></div>
+      <div class="res-item"><a class="res-link" href="https://www.bigblue.co/blog/the-ordinary-viral-skincare-brand-with-over-1-3m-followers-on-tiktok" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>The Ordinary: Viral TikTok Skincare Brand<span class="res-src">Bigblue</span></span></a></div>
+      <div class="res-item"><a class="res-link" href="https://www.tcf.team/blog/tiktok-strategies-for-beauty-brands" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Beauty Marketing: Viral Content Strategies<span class="res-src">TCF</span></span></a></div>
+      <div class="res-item"><a class="res-link" href="https://ads.tiktok.com/business/library/TikTok_Follow_Me_Best_Practices_Playbook_EN.pdf" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>TikTok Creative Best Practices Playbook <span class="badge">Official</span><span class="res-src">TikTok for Business</span></span></a></div>
+      <div class="res-item"><a class="res-link" href="https://sojcssm.com/2025/12/best-practices-for-brands-on-tiktok-in-2025/" target="_blank" rel="noopener"><span class="res-arrow">↗</span><span>Best Practices for Brands on TikTok in 2025<span class="res-src">SOJC Social Media</span></span></a></div>
+      <div class="sidebar-divider"></div>
+      <p class="sidebar-note"><strong>Formats to study first</strong> Watch 20 videos each of: Ingredient Education · Before/After · GRWM · Myth-Busting. Note what the top performers have in common in the first 2 seconds.</p>
+    </div>
+  </div>
+
+  <div class="mod-chips">
+    <span class="chips-label">Key Concepts</span>
+    <span class="chip">Hook Formulas</span><span class="chip">12 Content Formats</span><span class="chip">5-Pillar Framework</span><span class="chip">Length Strategy</span><span class="chip">Authentic Polish</span><span class="chip">Trend Timing</span>
+  </div>
+</div>
+
+<!-- MODULES 4–10 PLACEHOLDER — continued in next section -->
+<div id="m4"></div><div id="m5"></div><div id="m6"></div><div id="m7"></div><div id="m8"></div><div id="m9"></div><div id="m10"></div>
 
 </div><!-- /modules -->
 
-<!-- ── FOOTER ── -->
 <footer>
   <span class="foot-name">Tulika Pandey</span>
   <a class="foot-back" href="index.html">← Back to Portfolio</a>
